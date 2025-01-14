@@ -119,8 +119,8 @@ const HomeView: React.FC = () => {
           </button>
           <aside className='w-[30%] h-fit'>
             <h2 className={styles.rocTitle3}>
-                Active GitHub
-                Contributor
+                Active Github
+                contributor
             </h2>
             <p className='text-[#B2B2B2] text-[1.5rem] mt-[4rem] mb-[4rem]'>
                 I actively participate in the GitHub community, contributing 
@@ -146,14 +146,10 @@ const HomeView: React.FC = () => {
           <div className='flex flex-row justify-around w-[90%] m-auto items-center'>
             <aside className='w-[40%] h-fit'>
               <h2 className={styles.rocTitle3}>
-                  Active GitHub
-                  Contributor
+                Creating experiences
               </h2>
               <p className='text-[#B2B2B2] text-[1.5rem] mt-[4rem]'>
-                  I actively participate in the GitHub community, contributing 
-                  solutions and improving projects. I master version control with 
-                  efficient practices, such as branch management and conflict 
-                  resolution, ensuring organized and collaborative workflows.
+                I&#39;m deeply passionate about design, I master advanced tools to create innovative solutions. Understanding customer needs drives my focus and commitment to delivering quality user experiences. I have transformed my passion into a satisfying profession that I truly enjoy.
               </p>
             </aside>
             <LazyIframe/>
