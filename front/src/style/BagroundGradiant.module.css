@@ -1,0 +1,10 @@
+.GradientBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100vh; 
+    background: linear-gradient(to bottom, #000000 54%, #030021 100%);
+    z-index: -9999; 
+    pointer-events: none; 
+}

@@ -1,17 +1,21 @@
 import React from 'react'
 import styles from '../style/Header.module.css'
+import Link from 'next/link'
+
 const Header: React.FC = () => {
   return (
     <div>
          <img className={styles.rocStartWhaterMark} src="https://gist.githubusercontent.com/DavidRocFeler/1e71d964e24ce4beef6d5c18e9ed7080/raw/59d678e018f505b325002b6af79c29d107a135d0/StartShadow.svg" alt="StartWaterMark" />
          <header className={styles.rocHeader}>
-            <img className='absolute left-[2rem]' src="https://gist.githubusercontent.com/DavidRocFeler/b61259a123f78d3776ca317ac2286063/raw/fabc8bc7f3883347360532f60bbd5c37d555ab5c/rocfelerLogo.svg" alt="rocfelerLogo" />
+            <Link href='/' className='absolute left-[2rem]'>
+              <img src="https://gist.githubusercontent.com/DavidRocFeler/b61259a123f78d3776ca317ac2286063/raw/fabc8bc7f3883347360532f60bbd5c37d555ab5c/rocfelerLogo.svg" alt="rocfelerLogo" />
+            </Link>
             <nav className={styles.rocNav}>
-                <a href="">Deploys</a>
+                <Link href="">Deploys</Link>
                 <a href="">Repositories</a>
                 <a href="">UX/UI</a>
                 <a className='font-bold' href="">Blog</a>
-                <a href="">About</a>
+                <Link href="/about">About</Link>
                 <a href="">Resources</a>
             </nav>
             <button className={styles.rocButton}>

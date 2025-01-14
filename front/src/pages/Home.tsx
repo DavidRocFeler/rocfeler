@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import Header from '@/components/Header';
 import Infinity from '@/components/Infinitiy';
 import styles from '../style/Home.module.css'
 import ButtonContactMe from '@/components/ButtonContactMe';
@@ -11,8 +10,9 @@ import TechIcon from '@/components/TechIcon';
 import { useEffect, useState, useRef } from 'react';
 import BrandingIcon from '@/components/BrandingIcon';
 import { brandingHelpers } from '@/helpers/Branding.helpers';
-import Footer from '@/components/Footer';
 import LazyIframe from '@/components/LazyIframe';
+import { mainTitleHelpers } from '@/helpers/MainTitle.helpers';
+import MainTitle from '@/components/MainTitle';
 
 const HomeView: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -60,15 +60,15 @@ const HomeView: React.FC = () => {
     return () => cancelAnimationFrame(animationFrameId); // Limpia el loop al desmontar
   }, []);
 
+  const mainTitle1 = mainTitleHelpers.find((item) => item.id === 1)
+
   return (
     <div>
-        <div className={styles.GradientBackground}></div>
         <Infinity/>
-        <Header/>
 
-        <div className='flex flex-col leading-[1rem] h-[9rem] mt-[10rem] mb-[4rem] '>
+        <div className='flex flex-col leading-[1rem] h-[9rem] mt-[10rem] mb-[4rem]'>
           <h1 className={styles.rocTitle2}>Empower your Future with </h1>
-          <h1 className={styles.rocTitle}>Innovation & Technology</h1>
+          {mainTitle1 && <MainTitle title={mainTitle1.title } />}
         </div>
 
         <p className='w-[70%] m-auto text-center text-[#B2B2B2]'>Visionary passionate about innovation, focused on AI, Blockchain, front-end design, and user experience. Committed 
@@ -179,7 +179,6 @@ const HomeView: React.FC = () => {
             </div>
         </div>    
     
-         <Footer/>
     </div>
   )
 }
