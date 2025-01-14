@@ -34,10 +34,8 @@ const AboutView: React.FC = () => {
     }
 
     if (activeIndex === componentIndex) {
-      // Componente que sale
       return slideDirection === 'left' ? 'translateX(-100%)' : 'translateX(100%)';
     } else {
-      // Componente que entra
       return 'translateX(0)';
     }
   };
@@ -64,7 +62,6 @@ const AboutView: React.FC = () => {
       
       <div className="w-[100%] m-auto flex flex-col justify-center items-center">
         <div className="relative h-[21rem] w-full overflow-hidden">
-          {/* Primer MissionVision */}
           <div
             className="absolute w-full transition-all duration-500"
             style={{
@@ -75,7 +72,6 @@ const AboutView: React.FC = () => {
             <MissionVision {...missionVissionHelpers[0]} />
           </div>
 
-          {/* Segundo MissionVision */}
           <div
             className="absolute w-full transition-all duration-500"
             style={{
