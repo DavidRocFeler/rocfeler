@@ -1,0 +1,59 @@
+.rocHeader {
+    margin-top: 1.3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 1.3rem;
+  }
+  .rocButton {
+    color: black;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 450;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.17rem 1rem 0.2rem 1rem;
+    border-radius: 10px;
+    border: none;
+    position: absolute;
+    right: 6rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.1s ease-in-out;
+  }
+  .rocButton:active {
+    transform: translateY(2px); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom, #605bfb, #171fc0 );
+  }
+  .rocButton:hover {
+    background: linear-gradient(to bottom, #605bfb, #171fc0 );
+    color: white;
+  }
+.rocNav {
+    text-decoration: none;
+    margin: auto;
+    margin-top: 0.5rem;
+}
+.rocNav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 250;
+  font-size: 1rem;
+  margin: 1.62rem;
+}
+.rocStartWhaterMark {
+  position: absolute; 
+  top: 0.5rem; 
+  z-index: -8880; 
+  left: 5rem;
+  width: 90%;
+}

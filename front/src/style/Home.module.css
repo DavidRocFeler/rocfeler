@@ -1,0 +1,83 @@
+.GradientBackground {
+    position: fixed; /* Fija el gradiente al viewport */
+    top: 0;
+    left: 0;
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    height: 100vh; /* Cubre todo el alto del viewport */
+    background: linear-gradient(to bottom, #000000 54%, #030021 100%);
+    z-index: -9999; /* Asegúrate de que esté detrás del contenido */
+    pointer-events: none; /* Evita que interfiera con elementos interactivos */
+}
+.rocTitle {
+    font-size: 4rem;
+    font-weight: 150;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(90deg, 
+        #B42BC1 40%, 
+        #FFAE00 50%,  
+        #E78243 60%, 
+        #DA5BFB 70%
+    );
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    letter-spacing: 4%;
+}
+.rocTitle2 {
+    font-size: 4rem;
+    font-weight: 150;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    letter-spacing: 4%;
+    padding-top: 1.5rem;
+}
+.rocButtonRepositories {
+    transition: all 0.2s ease-in-out;
+    width: fit-content;
+    height: fit-content;
+}
+.rocButtonRepositories:active {
+    transform: translateY(2px); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+.rocTitle3 {
+    font-size: 4rem;
+    font-weight: 150;
+    color: white;
+    line-height: 4rem;
+}
+.rocButton {
+    color: #000000;
+    background: linear-gradient(to bottom, #2dbd2d, #079e07 );
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 450;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.17rem 1rem 0.2rem 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.1s ease-in-out;
+    margin: auto;
+    color: white;
+  }
+  .rocButton:active {
+    transform: translateY(2px); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  }

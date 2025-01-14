@@ -1,0 +1,15 @@
+.rocDeployContent {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background: linear-gradient(to bottom, #2E2E2E 0%, #181818 100%);
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transition: all 0.1s ease-in-out;
+}
+.rocDeployContent:active {
+    transform: translateY(2px); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
