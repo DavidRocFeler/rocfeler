@@ -1,8 +1,11 @@
+import Infinity from '@/components/Infinitiy'
 import React from 'react'
 
-const UxSection = () => {
+const UxSection: React.FC = () => {
   return (
-    <div>UxSection</div>
+    <div>
+      <Infinity/>
+    </div>
   )
 }
 

@@ -19,10 +19,10 @@ export interface IMainTitleprops {
     title?: string;
 }
 export interface IAboutInfoProps {
-    id?: number;
-    info?: string;
-    image?: string;
-    flex?: string; 
+    id: number;
+    info: string;
+    image: string;
+    flex: string; 
 }
 export interface IMissionVisionProps {
     id?: number;
