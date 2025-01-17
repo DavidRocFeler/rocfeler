@@ -22,7 +22,6 @@ export interface IAboutInfoProps {
     id: number;
     info: string;
     image: string;
-    flex: string; 
 }
 export interface IMissionVisionProps {
     id?: number;

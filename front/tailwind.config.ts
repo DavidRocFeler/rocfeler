@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      safelist: [
+        'flex-row',
+        'flex-row-reverse',
+      ],
       keyframes: {
         scroll: {
           "0%": { transform: "translateX(0)" },

@@ -54,11 +54,7 @@ const AboutView: React.FC = () => {
       </p>
 
       <div className="grid grid-rows-4 grid-cols-1 mb-[5rem]">
-        {aboutInfoHelpers.map((item) => (
-          <AboutInfo 
-          key={item.id} 
-          {...item} />
-        ))}
+        <AboutInfo/>
       </div>
 
       
