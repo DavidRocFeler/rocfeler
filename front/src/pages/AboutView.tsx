@@ -3,7 +3,6 @@ import MainTitle from '@/components/MainTitle';
 import ProfileShadow from '@/components/ProfileShadow';
 import React, { useState, useEffect } from 'react';
 import { mainTitleHelpers } from '@/helpers/MainTitle.helpers';
-import { aboutInfoHelpers } from '@/helpers/AboutInfo.helpers';
 import AboutInfo from '@/components/AboutInfo';
 import MissionVision from '@/components/MissionVision';
 import { missionVissionHelpers } from '@/helpers/MissionVision.helpers';
