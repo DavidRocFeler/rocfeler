@@ -16,7 +16,7 @@ export const deployContentHelpers: IDeployContentProps[] = [
     {
         id: 3, 
         image: 'https://gist.githubusercontent.com/DavidRocFeler/eb934881a380e09692cd5c467584aaec/raw/3b8e00f968b5f8c7b87ba5eb192263b19dbe6bfd/COINVELOPER.svg',
-        link: 'www.coinveloper.com',
+        link: 'https://www.coinveloper.com',
         imageSize: 'w-[6rem]'
     }
 ]

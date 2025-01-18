@@ -12,9 +12,9 @@ const Header: React.FC = () => {
             </Link>
             <nav className={styles.rocNav}>
                 <Link href="">Deploys</Link>
-                <a href="">Repositories</a>
+                <Link href="/repositories">Repositories</Link>
                 <Link href="/uxui">UX/UI</Link>
-                <a className='font-bold' href="">Blog</a>
+                <Link className='font-bold' href="https://davidrocfeler.blogspot.com">Blog</Link>
                 <Link href="/about">About</Link>
                 <a href="">Resources</a>
             </nav>

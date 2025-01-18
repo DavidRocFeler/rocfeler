@@ -34,7 +34,7 @@ const RenderFigma: React.FC<{ fileKey: string }> = ({ fileKey }) => {
         }}
       >
         <img
-          className="border-solid border-[1px] border-white"
+          className="border-solid border-[1px] border-[#3D444D]"
           src={thumbnailUrl}
           alt="Miniatura del archivo Figma"
           style={{

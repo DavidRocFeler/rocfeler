@@ -4,7 +4,7 @@ import styles from '../style/ButtonContactMe.module.css'
 const ButtonContactMe: React.FC = () => {
   return (
     <button className={styles.rocButton}>
-            Contact me 
+            Download cv 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 16"

@@ -13,12 +13,26 @@ import { brandingHelpers } from '@/helpers/Branding.helpers';
 import LazyIframe from '@/components/LazyIframe';
 import { mainTitleHelpers } from '@/helpers/MainTitle.helpers';
 import MainTitle from '@/components/MainTitle';
+import { useRouter } from 'next/navigation';
 
 const HomeView: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [position, setPosition] = useState(0);
   const containerRefRight = useRef<HTMLDivElement | null>(null);
   const [positionRight, setPositionRight] = useState(0);
+  const router = useRouter();
+  
+  const handleNavigationRepo = () => {
+    router.push('/repositories')
+  }
+
+  const handleNavigationUX = () => {
+    router.push('/uxui')
+  }
+
+  const handleBRedirectMyGithub = () => {
+    window.open('https://github.com/DavidRocFeler', '_blank')
+  }
 
   useEffect(() => {
     const container = containerRefRight.current;
@@ -114,7 +128,7 @@ const HomeView: React.FC = () => {
         </div>
    
         <div className='w-[90%] m-auto mt-[10rem] flex flex-row justify-around items-center'>
-          <button className={styles.rocButtonRepositories}>
+          <button onClick={handleBRedirectMyGithub} className={styles.rocButtonRepositories}>
             <img className='w-[25rem] h-auto border-solid border-[1px] border-[#3D444D] rounded-[20px]' src="https://gist.githubusercontent.com/DavidRocFeler/bff416156bd7ff1c8ec68b4634d1dfde/raw/65649adf05fe272d033ffc28d8499629c2b87ef0/Respositories.svg" alt="" />
           </button>
           <aside className='w-[30%] h-fit'>
@@ -128,7 +142,9 @@ const HomeView: React.FC = () => {
                 efficient practices, such as branch management and conflict 
                 resolution, ensuring organized and collaborative workflows.
             </p>
-            <button className={styles.rocButton}>
+            <button 
+            onClick={handleNavigationRepo}
+            className={styles.rocButton}>
                 See more 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -144,13 +160,14 @@ const HomeView: React.FC = () => {
 
         <div className='w-[90%] m-auto mt-[10rem] h-auto flex flex-col'>
           <div className='flex flex-row justify-around w-[90%] m-auto items-center'>
-            <aside className='w-[40%] h-fit'>
+            <aside className='w-[40%] h-fit relative'>
               <h2 className={styles.rocTitle3}>
                 Creating experiences
               </h2>
               <p className='text-[#B2B2B2] text-[1.5rem] mt-[4rem]'>
                 I&#39;m deeply passionate about design, I master advanced tools to create innovative solutions. Understanding customer needs drives my focus and commitment to delivering quality user experiences. I have transformed my passion into a satisfying profession that I truly enjoy.
               </p>
+              <button onClick={handleNavigationUX} className='text-[#2dbd2d] text-[1.5rem] absolute left-[4.5rem] bottom-0'> See more </button>
             </aside>
             <LazyIframe/>
           </div>
