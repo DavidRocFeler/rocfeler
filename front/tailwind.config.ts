@@ -8,6 +8,16 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        xxs: '350px',
+        xs: '388px',
+        s: '500px',
+        sm: '600px',
+        md: '700px',
+        xl: '900px',
+        xxl: '1200px',
+        xxxl: '1400px'
+      },
       safelist: [
         'flex-row',
         'flex-row-reverse',

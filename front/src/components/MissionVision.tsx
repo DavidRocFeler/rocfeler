@@ -4,7 +4,7 @@ import { IMissionVisionProps } from '@/interfaces/types'
 
 const MissionVision: React.FC<IMissionVisionProps> = ({title, info}) => {
   return (
-    <div className={styles.rocMissionVisionContent} >
+    <div className={styles.rocMissionVisionContent}>
         <h1 className={styles.rocTitle3}> {title} </h1>
         <p className='m-auto text-center text-[#B2B2B2] mt-[3rem]'>
           {info}

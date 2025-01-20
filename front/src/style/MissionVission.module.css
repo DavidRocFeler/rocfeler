@@ -6,8 +6,8 @@
     padding: 2rem 2rem 3rem 2rem;
     justify-content: center;
     margin: auto;
+    width: 90%;
     align-items: center;
-    width: 40%;
     transition: all 0.1s ease-in-out;
 }
 .rocMissionVisionContent:active {
@@ -23,3 +23,37 @@
     align-items: center;
     height: 5rem;
 }
+
+@media (min-width: 350px) {
+
+  }
+
+@media (min-width: 388px) {
+
+  }
+
+  @media (min-width: 508px) {
+ 
+  }
+
+  @media (min-width: 608px) {
+ 
+  }
+
+  @media (min-width: 708px) {
+    .rocMissionVisionContent {
+        width: 60%;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .rocMissionVisionContent {
+        width: 50%;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .rocMissionVisionContent {
+        width: 40%;
+    }
+  }

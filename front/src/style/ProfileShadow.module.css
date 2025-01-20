@@ -1,7 +1,13 @@
 .rocProfileShadow {
+    display: block;
     position: absolute;
-    top: 0rem;
-    left: 8rem; 
+    left: 0rem; 
+    top: 5rem;
     z-index: -8888; 
-    width: 80%;
+  }
+
+  @media (min-width: 1200px) {
+    .rocProfileShadow {
+      left: 8rem;
+    }
   }

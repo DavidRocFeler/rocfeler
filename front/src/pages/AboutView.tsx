@@ -6,6 +6,8 @@ import { mainTitleHelpers } from '@/helpers/MainTitle.helpers';
 import AboutInfo from '@/components/AboutInfo';
 import MissionVision from '@/components/MissionVision';
 import { missionVissionHelpers } from '@/helpers/MissionVision.helpers';
+import ButtonContactMe from '@/components/ButtonContactMe';
+import '../style/AboutView.module.css'
 
 const AboutView: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -57,8 +59,8 @@ const AboutView: React.FC = () => {
       </div>
 
       
-      <div className="w-[100%] m-auto flex flex-col justify-center items-center">
-        <div className="relative h-[21rem] w-full overflow-hidden">
+      <div className="w-[100%] bg-red-400 m-auto flex flex-col justify-center items-center">
+        <div id='MissionVissionContent' className="relative h-[30rem] xxs:h-[29rem] xs:h-[27rem] s:h-[24rem] sm:h-[22rem] md:h-[24rem] xxl:h-[23rem] xxxl:h-[22rem]  w-full bg-green-400 overflow-hidden">
           <div
             className="absolute w-full transition-all duration-500"
             style={{
@@ -88,6 +90,10 @@ const AboutView: React.FC = () => {
             <circle cx="50" cy="50" r="10" fill={activeIndex === 1 ? "#B3B2B9" : "transparent"} stroke="#B3B2B9" strokeWidth="1" />
           </svg>
         </div>
+      </div>
+
+      <div className='mt-[5rem]'>
+        <ButtonContactMe/>
       </div>
     </div>
   );

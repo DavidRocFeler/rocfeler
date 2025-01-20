@@ -21,7 +21,7 @@ const ProfileShadow: React.FC = () => {
       <img
         ref={imgRef}
         className={`${styles.rocProfileShadow} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
-        src="https://gist.githubusercontent.com/DavidRocFeler/fe3b1887e8c3b0bd252a24708b8db0a2/raw/78f450ae1215202f84ebb77c30ee36afd4f9120b/ProfileShadow.svg"
+        src="https://gist.githubusercontent.com/DavidRocFeler/fe8776e1826b2af2688f90e2abcbdb36/raw/ecb5c25aa99bc8609d3be058a251e2fe00a6f233/ProfileShadow.svg"
         alt="ProfileShadow"
         onLoad={handleImageLoad}
       />
