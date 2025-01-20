@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { fetchFigmaData } from '@/server/RenderFigma.server';
 import Loading from './Loading';
+import { IRenderFigmaProps } from '@/interfaces/types';
 
-const RenderFigma: React.FC<{ fileKey: string }> = ({ fileKey }) => {
+const RenderFigma: React.FC<IRenderFigmaProps> = ({ fileKey, link }) => {
   const [thumbnailUrl, setThumbnailUrl] = useState<string | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
   const [mainLogoUrl, setMainLogoUrl] = useState<string | null>(null);
@@ -18,6 +19,10 @@ const RenderFigma: React.FC<{ fileKey: string }> = ({ fileKey }) => {
     getFigmaData();
   }, [fileKey]);
 
+  const handleRedirectFigma = () => {
+    window.open(link, '_blank')
+  }
+
   if (!thumbnailUrl) {
     return <Loading width="241px" height="198px" />;
   }
@@ -25,6 +30,7 @@ const RenderFigma: React.FC<{ fileKey: string }> = ({ fileKey }) => {
   return (
     <>
       <button
+        onClick={handleRedirectFigma}
         style={{
           width: '241px',
           position: 'relative',

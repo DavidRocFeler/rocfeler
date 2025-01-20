@@ -37,6 +37,7 @@ export interface ILazyFrameProps {
 export interface IRenderFigmaProps {
     id: number;
     fileKey: string;
+    link: string; 
 }
 export interface ITitleCarruselCardProps {
     id: number;

@@ -130,9 +130,9 @@ const RenderFigmaWrapper: React.FC<ITitleCarruselCardProps> = ({title}) => {
               }
             `}</style>
             
-            {renderFigmaHelpers.map((figmaHelper) => (
-              <div key={figmaHelper.id}>
-                <RenderFigma fileKey={figmaHelper.fileKey} />
+            {renderFigmaHelpers.map((item) => (
+              <div key={item.id}>
+                <RenderFigma {...item} />
               </div>
             ))}
           </div>

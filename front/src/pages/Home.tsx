@@ -78,8 +78,6 @@ const HomeView: React.FC = () => {
 
   return (
     <div>
-        <Infinity/>
-
         <div className='flex flex-col leading-[1rem] h-[9rem] mt-[10rem] mb-[4rem]'>
           <h1 className={styles.rocTitle2}>Empower your Future with </h1>
           {mainTitle1 && <MainTitle title={mainTitle1.title } />}
