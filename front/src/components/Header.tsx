@@ -71,7 +71,7 @@ const Header: React.FC = () => {
         
         <nav className={`${styles.rocNav}`}>
           <div className='hidden xxl:flex flex-row justify-evenly p-0 w-[100%]'>
-            <Link href="">Deploys</Link>
+            <Link href="/deploy">Deploys</Link>
             <Link href="/repositories">Repositories</Link>
             <Link href="/uxui">UX/UI</Link>
             <Link href="https://davidrocfeler.blogspot.com">Blog</Link>
@@ -101,7 +101,7 @@ const Header: React.FC = () => {
         >
           <div ref={contentRef}>
             <li className='hover:bg-[#1F1F1F] py-[0.35rem] mb-2 text-center rounded-[10px]'>
-              <Link href="" onClick={() => handleLinkClick(false)}>Deploys</Link>
+              <Link href="/deploy" onClick={() => handleLinkClick(false)}>Deploys</Link>
             </li>
             <li className='hover:bg-[#1F1F1F] py-[0.35rem] mb-2  text-center rounded-[10px]'>
               <Link href="/repositories" onClick={() => handleLinkClick(false)}>Repositories</Link>

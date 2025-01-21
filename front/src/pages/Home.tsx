@@ -173,8 +173,8 @@ const HomeView: React.FC = () => {
         </div>
 
         <div className='w-[100%] m-auto mt-[10rem] h-auto flex flex-col'>
-          <div className='flex flex-col-reverse xxl:flex-row justify-around w-[90%]m-auto items-center'>
-            <aside className='w-[80%] xxl:w-[40%] h-fit relative mt-[4rem] xxl:mt-0'>
+          <div className='flex flex-col-reverse xxl:flex-row justify-around w-[90%] m-auto items-center'>
+            <aside className='w-[80%] xxl:w-[35%] h-fit relative mt-[4rem] xxl:mt-0'>
               <h2 className={styles.rocTitle4}>
                 Creating experiences
               </h2>
