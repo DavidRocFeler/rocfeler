@@ -14,15 +14,31 @@ const GitHubCard: React.FC<GitHubCardProps> = ({ name, htmlUrl, isPublic, langua
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulamos la carga de datos (puedes ajustar esto según tu lógica real)
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1000); // Simula un retraso de 2 segundos
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
-
+  
   if (isLoading) {
-    return <Loading width="241px" height="220px" />;
+    return (
+      <div style={{
+        margin: 'auto',
+        width: '241px',
+        background: '#0d1117',
+        height: '220px',
+        border: '1px solid #3D444D',
+        borderRadius: '10px',
+        padding: '10px',
+        color: '#ffffff',
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
+        boxShadow: '0 2px 5px rgba(0, 0, 0, 0.5)',
+      }}>
+        <Loading width="100%" height="100%" />
+      </div>
+    );
   }
 
   const totalBytes = Object.values(languages).reduce((acc, bytes) => acc + bytes, 0);
@@ -50,22 +66,20 @@ const GitHubCard: React.FC<GitHubCardProps> = ({ name, htmlUrl, isPublic, langua
   };
 
   return (
-    <div
-      style={{
-        margin: 'auto',
-        width: '241px',
-        background: '#0d1117',
-        height: '220px',
-        border: '1px solid #3D444D',
-        borderRadius: '10px',
-        padding: '10px',
-        color: '#ffffff',
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'relative',
-        boxShadow: '0 2px 5px rgba(0, 0, 0, 0.5)',
-      }}
-    >
+    <div style={{
+      margin: 'auto',
+      width: '241px',
+      background: '#0d1117',
+      height: '220px',
+      border: '1px solid #3D444D',
+      borderRadius: '10px',
+      padding: '10px',
+      color: '#ffffff',
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'relative',
+      boxShadow: '0 2px 5px rgba(0, 0, 0, 0.5)',
+    }}>
       <div className="w-fit flex flex-row items-center absolute top-2">
         <img
           src="https://gist.githubusercontent.com/DavidRocFeler/326dc25fe04947a3e0639238aab0d4a6/raw/99ac42c759861980da86360162c0d3c3ced10f40/GitHubLogoCard.svg"
