@@ -1,8 +1,13 @@
-.RocInfinity {
-    position: absolute; 
-    z-index: -8888; 
-    width: 80%;
-    top: 0rem;
-    left: 10rem;
-    width: 70%;
-}
+
+.RocInfinity  {
+    width: auto;
+    height: 30rem;
+    object-fit: cover;
+  }
+
+  @media (min-width: 900px) {
+    .RocInfinity  {
+        width: auto;
+        height: 27rem;
+    }
+  }

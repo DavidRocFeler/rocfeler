@@ -7,33 +7,6 @@
     padding: 0;
     position: relative;
   }
-  .rocButton {
-    margin-right: 1rem;
-    color: black;
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-weight: 450;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1rem;
-    padding: 0.17rem 1rem 0.2rem 1rem;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.1s ease-in-out;
-  }
-  .rocButton:active {
-    transform: translateY(2px); 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(to bottom, #605bfb, #171fc0 );
-  }
-  .rocButton:hover {
-    background: linear-gradient(to bottom, #605bfb, #171fc0 );
-    color: white;
-  }
 .rocNav {
     text-decoration: none;
     margin: auto;
@@ -48,9 +21,69 @@
   margin-bottom: 0;
 }
 .rocStartWhaterMark {
-  position: absolute; 
-  top: 0.5rem; 
+  margin-top: 1rem; 
   z-index: -8880; 
-  left: 5rem;
-  width: 90%;
+  left: 1rem;
+  width: auto;
+  height: 11rem;
+  object-fit: cover;
+  display: none;
+}
+.rocStartWhaterMark2 {
+  margin-top: 1rem; 
+  z-index: -8880; 
+  left: 1rem;
+  width: auto;
+  height: 21rem;
+  object-fit: cover;
+}
+.rocButton {
+  margin-right: 1rem;
+  width: 100%;
+  color: white;
+  background-color: #1F1F1F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 450;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1rem;
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.1s ease-in-out;
+}
+.rocButton:active {
+  transform: translateY(2px); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to bottom, #605bfb, #171fc0 );
+}
+.rocButton:hover {
+  background: linear-gradient(to bottom, #605bfb, #171fc0 );
+}
+
+@media (min-width: 600px) {
+  .rocStartWhaterMark2 {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 1200px) {
+  .rocStartWhaterMark {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+  .rocStartWhaterMark2 {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: none;
+  }
 }

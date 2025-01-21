@@ -24,10 +24,8 @@ const LazyIframe: React.FC = () => {
     <div>
       {isDomLoaded && (
         <iframe
-          className="rounded-[20px]"
+          className="rounded-[20px] w-[303px] h-[206px] xs:w-[323px] xs:h-[226px] s:w-[404px] s:h-[316px]"
           src="https://www.behance.net/embed/project/216112801?ilo0=1"
-          height="316"
-          width="404"
           allowFullScreen
           loading="lazy"
           allow="clipboard-write"

@@ -1,0 +1,17 @@
+.ContentInfinity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 27rem;
+    position: absolute;
+    z-index: -8888;
+    top: 0;
+}
+
+@media (min-width: 900px) {
+    .ContentInfinity {
+        width: 100%;
+        height: auto;
+    }
+  }

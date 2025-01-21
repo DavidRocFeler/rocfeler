@@ -52,6 +52,7 @@ const GitHubCard: React.FC<GitHubCardProps> = ({ name, htmlUrl, isPublic, langua
   return (
     <div
       style={{
+        margin: 'auto',
         width: '241px',
         background: '#0d1117',
         height: '220px',

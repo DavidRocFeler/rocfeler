@@ -1,11 +1,11 @@
+import ContentInfinity from '@/components/ContentInfinity';
 import GitHubProjectsList from '@/components/GitHubProjectsList';
-import Infinity from '@/components/Infinitiy';
 import React from 'react'
 
 const RepositoriesView: React.FC = () => {
   return (
     <div>
-      <Infinity/>
+      <ContentInfinity/>
       <div className='mt-[26.5rem]'>
         <GitHubProjectsList/>
       </div>

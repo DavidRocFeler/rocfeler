@@ -1,5 +1,5 @@
 .rocTitle2 {
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 150;
     color: white;
     display: flex;
@@ -19,10 +19,18 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 .rocTitle3 {
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 150;
     color: white;
-    line-height: 4rem;
+    line-height: 3rem;
+    text-align: center;
+}
+.rocTitle4 {
+  font-size: 2rem;
+  font-weight: 150;
+  color: white;
+  line-height: 3rem;
+  text-align: center;
 }
 .rocButton {
     color: #000000;
@@ -49,4 +57,57 @@
   .rocButton:active {
     transform: translateY(2px); 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  }
+
+  @media (min-width: 600px) {
+    .rocTitle2 {
+        font-size: 2.5rem;
+    }
+    .rocTitle3 {
+      font-size: 2.5rem;
+    }
+    .rocTitle4 {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (min-width: 700px) {
+    .rocTitle2 {
+        font-size: 3rem;
+    }
+    .rocTitle3 {
+      font-size: 3rem;
+      line-height: 4rem;
+    }
+    .rocTitle4 {
+      font-size: 3rem;
+      line-height: 4rem;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .rocTitle2 {
+        font-size: 4rem;
+        height: 5rem;
+        letter-spacing: 4%;
+        padding-top: 1.5rem;
+    }
+    .rocTitle3 {
+      font-size: 4rem;
+    }
+    .rocTitle4 {
+      font-size: 4rem;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .rocTitle3 {
+      text-align: start;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .rocTitle4 {
+      text-align: start;
+    }
   }

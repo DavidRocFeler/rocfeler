@@ -2,12 +2,25 @@
     display: block;
     position: absolute;
     left: 0rem; 
-    top: 5rem;
+    top: 4rem;
     z-index: -8888; 
+    object-fit: cover;
+    width: 100%;
+    height: 850px;
+  }
+
+  @media (min-width: 840px) {
+    .rocProfileShadow {
+     height: auto;
+     top: 2rem;
+    }
   }
 
   @media (min-width: 1200px) {
     .rocProfileShadow {
-      left: 8rem;
+     left: 7rem;
+     height: auto;
+     width: 83%;
+     top: 2.5rem;
     }
   }

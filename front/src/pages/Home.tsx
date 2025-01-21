@@ -1,8 +1,6 @@
 'use client'
 import React from 'react'
-import Infinity from '@/components/Infinitiy';
 import styles from '../style/Home.module.css'
-import ButtonContactMe from '@/components/ButtonContactMe';
 import DeployContent from '@/components/DeployContent';
 import { deployContentHelpers } from '@/helpers/Deploy.helpers'
 import { techIconHelpers } from '@/helpers/TechIcon.helpers';
@@ -14,6 +12,7 @@ import LazyIframe from '@/components/LazyIframe';
 import { mainTitleHelpers } from '@/helpers/MainTitle.helpers';
 import MainTitle from '@/components/MainTitle';
 import { useRouter } from 'next/navigation';
+import ButtonDownloadCv from '@/components/ButtonDownloadCv';
 
 const HomeView: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -78,7 +77,7 @@ const HomeView: React.FC = () => {
 
   return (
     <div>
-        <div className='flex flex-col leading-[1rem] h-[9rem] mt-[10rem] mb-[4rem]'>
+        <div className='flex flex-col leading-[1rem] h-[6rem] md:h-[9rem] mt-[5rem] md:mt-[4rem] xl:mt-[10rem] mb-[4rem]'>
           <h1 className={styles.rocTitle2}>Empower your Future with </h1>
           {mainTitle1 && <MainTitle title={mainTitle1.title } />}
         </div>
@@ -88,23 +87,40 @@ const HomeView: React.FC = () => {
         </p>
 
         <div className='mt-[3rem] mb-[5rem]'>
-          <ButtonContactMe/>
+          <ButtonDownloadCv/>
         </div>
 
-        <div className="grid grid-cols-3 gap-x-[2rem] w-[90%] m-auto">
-          {deployContentHelpers.map((item) => (
-            <DeployContent 
-              key={item.id} 
-              image={item.image} 
-              link={item.link} 
-              imageSize={item.imageSize} 
-            />
-          ))}
+        <div className=":grid gap-[1rem] w-[97%] xs:w-[90%] s:w-[80%] sm:w-[70%] mdd:w-[90%] m-auto">
+          <div className={`
+            grid 
+            grid-cols-1 
+            mdd:grid-cols-2 
+            xxl:grid-cols-3 
+            gap-[1rem]
+            ${deployContentHelpers.length === 3 ? 'auto-rows-fr' : ''}
+          `}>
+            {deployContentHelpers.map((item, index) => (
+              <div
+                key={item.id}
+                className={`
+                  p-4 
+                  w-full
+                  ${index === 2 ? 'mdd:col-span-2 mdd:w-[calc(50%-0.5rem)] mdd:justify-self-center xxl:col-auto xxl:w-full' : ''}
+                `}
+              >
+                <DeployContent
+                  image={item.image}
+                  link={item.link}
+                  imageSize={item.imageSize}
+                />
+              </div>
+            ))}
+          </div>
         </div>
         
         <div className="overflow-hidden mt-[3rem]">
           <div
-            className="flex fles-row w-[200%] justify-around items-center"
+            className="flex fles-row w-[500%] xs:w-[400%] s:w-[350%] md:w-[300%] xl:w-[250%] xxl:w-[200%] justify-around items-center"
             ref={containerRef}
             style={{ transform: `translateX(${position}px)` }}
           >
@@ -125,16 +141,16 @@ const HomeView: React.FC = () => {
           </div>
         </div>
    
-        <div className='w-[90%] m-auto mt-[10rem] flex flex-row justify-around items-center'>
+        <div className='w-[90%] m-auto mt-[10rem] flex flex-col xll:flex-row justify-around items-center'>
           <button onClick={handleBRedirectMyGithub} className={styles.rocButtonRepositories}>
             <img className='w-[25rem] h-auto border-solid border-[1px] border-[#3D444D] rounded-[20px]' src="https://gist.githubusercontent.com/DavidRocFeler/bff416156bd7ff1c8ec68b4634d1dfde/raw/65649adf05fe272d033ffc28d8499629c2b87ef0/Respositories.svg" alt="" />
           </button>
-          <aside className='w-[30%] h-fit'>
+          <aside className='w-[80%] mt-[4rem] xll:w-[30%] h-fit xll:mt-0'>
             <h2 className={styles.rocTitle3}>
                 Active Github
                 contributor
             </h2>
-            <p className='text-[#B2B2B2] text-[1.5rem] mt-[4rem] mb-[4rem]'>
+            <p className='text-[#B2B2B2] text-[1.5rem] mt-[2rem] xll:mt-[4rem] xll:mb-[4rem] mb-[3rem] text-center xll:text-start'>
                 I actively participate in the GitHub community, contributing 
                 solutions and improving projects. I master version control with 
                 efficient practices, such as branch management and conflict 
@@ -156,24 +172,42 @@ const HomeView: React.FC = () => {
           </aside>
         </div>
 
-        <div className='w-[90%] m-auto mt-[10rem] h-auto flex flex-col'>
-          <div className='flex flex-row justify-around w-[90%] m-auto items-center'>
-            <aside className='w-[40%] h-fit relative'>
-              <h2 className={styles.rocTitle3}>
+        <div className='w-[100%] m-auto mt-[10rem] h-auto flex flex-col'>
+          <div className='flex flex-col-reverse xxl:flex-row justify-around w-[90%]m-auto items-center'>
+            <aside className='w-[80%] xxl:w-[40%] h-fit relative mt-[4rem] xxl:mt-0'>
+              <h2 className={styles.rocTitle4}>
                 Creating experiences
               </h2>
-              <p className='text-[#B2B2B2] text-[1.5rem] mt-[4rem]'>
+              <p className='text-[#B2B2B2] text-[1.5rem] mt-[2rem] xxl:mt-[4rem] text-center xxl:text-start'>
                 I&#39;m deeply passionate about design, I master advanced tools to create innovative solutions. Understanding customer needs drives my focus and commitment to delivering quality user experiences. I have transformed my passion into a satisfying profession that I truly enjoy.
               </p>
-              <button onClick={handleNavigationUX} className='text-[#2dbd2d] text-[1.5rem] absolute left-[4.5rem] bottom-0'> See more </button>
             </aside>
-            <LazyIframe/>
+            <div className='flex flex-col'>
+              <LazyIframe/>
+              <button onClick={handleNavigationUX} className='text-[#2dbd2d] text-[1.5rem] ml-auto mt-[2rem] hidden xxl:block'> See more </button>
+            </div>
           </div>
+        </div>
+
+        <div className='mt-[3rem] xxl:hidden'>
+            <button 
+              onClick={handleNavigationRepo}
+              className={styles.rocButton}>
+                  See more 
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 16"
+                    fill="currentColor"
+                    className="mt-[0.75rem] ml-[0.46rem] w-[1.5rem] h-auto"
+                    >
+                    <path d="M15.3536 4.35355C15.5488 4.15829 15.5488 3.84171 15.3536 3.64645L12.1716 0.464466C11.9763 0.269204 11.6597 0.269204 11.4645 0.464466C11.2692 0.659728 11.2692 0.976311 11.4645 1.17157L14.2929 4L11.4645 6.82843C11.2692 7.02369 11.2692 7.34027 11.4645 7.53553C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553L15.3536 4.35355ZM4 4.5H15V3.5H4V4.5Z" />
+                  </svg>
+            </button>
         </div>
 
         <div className="overflow-hidden mt-[3rem]">
             <div
-              className="flex flex-row w-[200%] justify-around items-center"
+              className="flex flex-row w-[500%] xs:w-[400%] s:w-[350%] md:w-[300%] xl:w-[250%] xxl:w-[200%] justify-around items-center"
               ref={containerRefRight}
               style={{ transform: `translateX(${positionRight}px)` }}
             >

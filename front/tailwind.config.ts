@@ -12,9 +12,12 @@ export default {
         xxs: '350px',
         xs: '388px',
         s: '500px',
+        ssm: '560px',
         sm: '600px',
         md: '700px',
+        mdd: '750px',
         xl: '900px',
+        xll: '1000px',
         xxl: '1200px',
         xxxl: '1400px'
       },

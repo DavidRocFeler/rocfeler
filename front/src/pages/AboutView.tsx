@@ -6,8 +6,7 @@ import { mainTitleHelpers } from '@/helpers/MainTitle.helpers';
 import AboutInfo from '@/components/AboutInfo';
 import MissionVision from '@/components/MissionVision';
 import { missionVissionHelpers } from '@/helpers/MissionVision.helpers';
-import ButtonContactMe from '@/components/ButtonContactMe';
-import '../style/AboutView.module.css'
+import ButtonDownloadCv from '@/components/ButtonDownloadCv';
 
 const AboutView: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -42,9 +41,9 @@ const AboutView: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className='overflow-hidden'>
       <ProfileShadow />
-      <div className="h-[9rem] mt-[10rem] mb-[4rem]">
+      <div className="h-[9rem] mt-[5rem] md:mt-[6rem] xl:mt-[10rem] mb-[4rem]">
         {mainTitleHelpers.find((item) => item.id === 2) && (
           <MainTitle title={mainTitleHelpers.find((item) => item.id === 2)!.title} />
         )}
@@ -59,8 +58,8 @@ const AboutView: React.FC = () => {
       </div>
 
       
-      <div className="w-[100%] bg-red-400 m-auto flex flex-col justify-center items-center">
-        <div id='MissionVissionContent' className="relative h-[30rem] xxs:h-[29rem] xs:h-[27rem] s:h-[24rem] sm:h-[22rem] md:h-[24rem] xxl:h-[23rem] xxxl:h-[22rem]  w-full bg-green-400 overflow-hidden">
+      <div className="w-[100%] m-auto flex flex-col justify-center items-center">
+        <div className="relative h-[30rem] xxs:h-[29rem] xs:h-[27rem] s:h-[24rem] sm:h-[22rem] md:h-[24rem] xxl:h-[23rem] xxxl:h-[22rem]  w-full overflow-hidden">
           <div
             className="absolute w-full transition-all duration-500"
             style={{
@@ -93,7 +92,7 @@ const AboutView: React.FC = () => {
       </div>
 
       <div className='mt-[5rem]'>
-        <ButtonContactMe/>
+        <ButtonDownloadCv/>
       </div>
     </div>
   );

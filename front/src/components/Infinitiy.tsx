@@ -23,7 +23,7 @@ const Infinity: React.FC = () => {
           <img
             ref={imgRef}
             className={`${styles.RocInfinity} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
-            src="https://gist.githubusercontent.com/DavidRocFeler/3233f6dfa587a743afcd5d8a1ad7ed3a/raw/56506e4e7f2feb84d15f6b2303eb4ae4e592e83f/infinityCover.svg"
+            src="https://gist.githubusercontent.com/DavidRocFeler/91cadb969668650c62e7be9d70d10a06/raw/a38e52da39c9177e02d0bed2f3b46d7291333536/InfinityCover.svg"
             alt="Infinity"
             onLoad={handleImageLoad}
           />
