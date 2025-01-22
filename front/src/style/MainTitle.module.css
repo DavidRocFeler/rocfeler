@@ -39,8 +39,10 @@
 
   @media (max-width: 375px) {
     .rocTitle {
-      font-size: 2rem;
-      height: 4rem;
-      letter-spacing: 2%;
+        font-size: 2rem; /* Tamaño del texto reducido */
+        height: 4rem; /* Altura ajustada */
+        color: white; /* Color sólido para el texto */
+        background: none; /* Elimina el gradiente de fondo */
+        -webkit-text-fill-color: unset; /* Resetea el color del relleno de texto */
     }
   }
