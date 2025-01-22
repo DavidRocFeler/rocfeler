@@ -98,7 +98,7 @@ const Header: React.FC = () => {
             </Link>
             <Link 
               href="https://davidrocfeler.blogspot.com" 
-              className="text-white"
+              className="text-white font-[250]"
             >
               Blog
             </Link>
