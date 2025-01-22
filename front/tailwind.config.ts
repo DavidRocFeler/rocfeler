@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(to bottom, #000000 54%, #030021 100%)',
+      },
       screens: {
         xxs: '350px',
         xs: '388px',

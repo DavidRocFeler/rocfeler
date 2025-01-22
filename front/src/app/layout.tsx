@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-[#030021]">
         <BagroundGradiant/>
         <Header/>
         {children}
