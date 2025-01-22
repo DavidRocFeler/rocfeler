@@ -4,11 +4,14 @@ import styles from '../style/Header.module.css'
 import Link from 'next/link'
 import { Menu } from 'lucide-react'
 import ButtonContactMe from './ButtonContactMe'
+import { usePathname } from 'next/navigation'
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLUListElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  const pathname = usePathname();
 
   // Manejar el cierre del menú al salir del contenedor
   useEffect(() => {
@@ -73,14 +76,41 @@ const Header: React.FC = () => {
           />
         </Link>
         
-        <nav className={`${styles.rocNav}`}>
-          <div className='hidden xxl:flex flex-row justify-evenly p-0 w-[100%]'>
-            <Link href="/deploy">Deploys</Link>
-            <Link href="/repositories">Repositories</Link>
-            <Link href="/uxui">UX/UI</Link>
-            <Link href="https://davidrocfeler.blogspot.com">Blog</Link>
-            <Link href="/about">About</Link>
-            <a href="">Resources</a>         
+         <nav className={`${styles.rocNav}`}>
+          <div className="hidden xxl:flex flex-row justify-evenly p-0 w-[100%]">
+            <Link 
+              href="/deploy" 
+              className={`${pathname === '/deploy' ? 'font-bold' : 'text-white font-[250]'}`}
+            >
+              Deploys
+            </Link>
+            <Link 
+              href="/repositories" 
+              className={`${pathname === '/repositories' ? 'font-bold' : 'text-white font-[250]'}`}
+            >
+              Repositories
+            </Link>
+            <Link 
+              href="/uxui" 
+              className={`${pathname === '/uxui' ? 'font-bold' : 'text-white font-[250]'}`}
+            >
+              UX/UI
+            </Link>
+            <Link 
+              href="https://davidrocfeler.blogspot.com" 
+              className="text-white"
+            >
+              Blog
+            </Link>
+            <Link 
+              href="/about" 
+              className={`${pathname === '/about' ? 'font-bold' : 'text-white font-[250]'}`}
+            >
+              About
+            </Link>
+            <a href="" className="text-white">
+              Resources
+            </a>
           </div>
         </nav>
 
