@@ -108,7 +108,7 @@ const Header: React.FC = () => {
             >
               About
             </Link>
-            <a href="" className="text-white">
+            <a href="" className="text-white font-[250]">
               Resources
             </a>
           </div>
