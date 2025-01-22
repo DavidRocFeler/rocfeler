@@ -77,7 +77,7 @@ const HomeView: React.FC = () => {
 
   return (
     <div>
-        <div className='flex flex-col leading-[1rem] h-[6rem] md:h-[9rem] mt-[5rem] md:mt-[4rem] xl:mt-[10rem] mb-[4rem]'>
+        <div className='flex flex-col items-center leading-[1rem] h-[6rem] md:h-[9rem] mt-[5rem] md:mt-[4rem] xl:mt-[10rem] mb-[4rem]'>
           <h1 className={styles.rocTitle2}>Empower your Future with </h1>
           {mainTitle1 && <MainTitle title={mainTitle1.title } />}
         </div>

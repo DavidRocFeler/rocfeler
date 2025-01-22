@@ -4,7 +4,7 @@
     color: white;
     display: flex;
     justify-content: center;
-    align-items: center;
+    text-align: center;
     height: 5rem;
     letter-spacing: 4%;
     padding-top: 1.5rem;
