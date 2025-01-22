@@ -6,7 +6,6 @@ const Footer: React.FC = () => {
   const handleRedirectBehance = () => {
     window.open('https://www.behance.net/davidrocfeler', '_blank')
   }
-
   const handleRedirectLinkedin = () => {
     window.open('https://www.linkedin.com/in/davidrocfeler/', '_blank')
   }

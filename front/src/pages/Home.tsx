@@ -150,7 +150,7 @@ const HomeView: React.FC = () => {
                 Active Github
                 contributor
             </h2>
-            <p className='text-[#B2B2B2] text-[1.5rem] mt-[2rem] xll:mt-[4rem] xll:mb-[4rem] mb-[3rem] text-center xll:text-start'>
+            <p className='text-[#B2B2B2] font-light text-[1.5rem] mt-[2rem] xll:mt-[4rem] xll:mb-[4rem] mb-[3rem] text-center xll:text-start'>
                 I actively participate in the GitHub community, contributing 
                 solutions and improving projects. I master version control with 
                 efficient practices, such as branch management and conflict 
@@ -178,7 +178,7 @@ const HomeView: React.FC = () => {
               <h2 className={styles.rocTitle4}>
                 Creating experiences
               </h2>
-              <p className='text-[#B2B2B2] text-[1.5rem] mt-[2rem] xxl:mt-[4rem] text-center xxl:text-start'>
+              <p className='text-[#B2B2B2] font-light text-[1.5rem] mt-[2rem] xxl:mt-[4rem] text-center xxl:text-start'>
                 I&#39;m deeply passionate about design, I master advanced tools to create innovative solutions. Understanding customer needs drives my focus and commitment to delivering quality user experiences. I have transformed my passion into a satisfying profession that I truly enjoy.
               </p>
             </aside>
