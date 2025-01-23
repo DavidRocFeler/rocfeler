@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
           </button>
           <a className='hidden xxl:block'>https://www.linkedin.com/in/davidrocfeler/</a>
           <button onClick={handleRedirectGithub}>
-            <img className="w-[1.7rem] h-[1.7rem]" src="https://gist.githubusercontent.com/DavidRocFeler/773312ea20e3b8090310332bc43f96f5/raw/ea0b666f534cb8cb6a5b6e698ad0aab9a025a6f1/Github.svg" alt="GithubIcon"/>
+            <img className="w-[1.7rem] h-[1.7rem]" src="/Github.svg" alt="GithubIcon"/>
           </button>
           <a className='hidden xxl:block'>https://github.com/DavidRocFeler</a>
         </div>
