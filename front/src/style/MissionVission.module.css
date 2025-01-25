@@ -3,42 +3,43 @@
     flex-direction: column;
     border-radius: 20px;
     background: linear-gradient(to bottom, #2E2E2E 0%, #181818 100%);
-    padding: 2rem 2rem 3rem 2rem;
     justify-content: center;
     margin: auto;
     width: 90%;
     align-items: center;
     transition: all 0.1s ease-in-out;
+    padding: 2rem;
 }
 .rocMissionVisionContent:active {
     transform: translateY(2px); 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 .rocTitle3 {
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 150;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 5rem;
 }
 
-@media (min-width: 350px) {
-
+@media (min-width: 600px) {
+  .rocTitle3 {
+      font-size: 2.5rem;
   }
+}
 
-@media (min-width: 388px) {
-
+@media (min-width: 700px) {
+  .rocTitle3 {
+      font-size: 3rem;
   }
+}
 
-  @media (min-width: 508px) {
- 
+@media (min-width: 900px) {
+  .rocTitle3 {
+      font-size: 4rem;
   }
-
-  @media (min-width: 608px) {
- 
-  }
+}
 
   @media (min-width: 708px) {
     .rocMissionVisionContent {

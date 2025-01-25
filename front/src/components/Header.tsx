@@ -71,7 +71,7 @@ const Header: React.FC = () => {
       <header className={styles.rocHeader}>
         <Link href='/' className='absolute left-[1rem] md:left-[2rem] top-[0.1rem]'>
           <img 
-            src="/rocfelerLogo.svg" 
+            src="/rocfeler.png" 
             alt="rocfelerLogo" 
           />
         </Link>

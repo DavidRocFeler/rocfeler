@@ -23,8 +23,8 @@ export const renderFigmaHelpers: IRenderFigmaProps[] = [
     },
     {
         id: 5,
-        fileKey: "Eo8fxtc9mRncrgUlxG09Me",
-        link: 'https://www.figma.com/design/Eo8fxtc9mRncrgUlxG09Me/Coinveloper?node-id=391-2&p=f&t=3hmCP77PHxSJO1iN-0'
+        fileKey: "HblhGFcB4RG4p1GooElrUM",
+        link: 'https://www.figma.com/design/HblhGFcB4RG4p1GooElrUM/StreamD?node-id=32-41&p=f&t=P52mPQ3i4WeTsnyG-0'
     },
     {
         id: 6,
@@ -48,8 +48,8 @@ export const renderFigmaHelpers: IRenderFigmaProps[] = [
     },
     {
         id: 10,
-        fileKey: "ffGXkhcR2IZOgVZyPK8tjM",
-        link: 'https://www.figma.com/design/ffGXkhcR2IZOgVZyPK8tjM/Ingenius?t=hVkbrE9Umwd7SdCq-0'
+        fileKey: "HblhGFcB4RG4p1GooElrUM",
+        link: 'https://www.figma.com/design/HblhGFcB4RG4p1GooElrUM/StreamD?node-id=32-41&p=f&t=P52mPQ3i4WeTsnyG-0'
     },
     {
         id: 11,
