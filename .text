@@ -1,0 +1,6 @@
+     <Link 
+              href="/deploy" 
+              className={`${pathname === '/deploy' ? 'font-bold' : 'text-white font-[250]'}`}
+            >
+              Deploys
+            </Link>

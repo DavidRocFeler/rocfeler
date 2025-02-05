@@ -61,3 +61,11 @@ export interface ILoadingProps {
     width?: string;
     height?: string;
   }
+export interface ICoverDeploysProps {
+    id: number;
+    img: string;
+    link?: string;
+}
+export interface ICoverDeployCarouselProps {
+    items: ICoverDeploysProps[];
+  }

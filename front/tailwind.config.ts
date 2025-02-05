@@ -7,6 +7,9 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    plugins: [
+      require("tailwind-scrollbar-hide") // Agregamos el plugin para ocultar la scrollbar
+    ],
     extend: {
       backgroundImage: {
         'custom-gradient': 'linear-gradient(to bottom, #000000 54%, #030021 100%)',

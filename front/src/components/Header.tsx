@@ -13,6 +13,9 @@ const Header: React.FC = () => {
 
   const pathname = usePathname();
 
+  const isDeployPath = pathname === '/deploy';
+
+
   // Manejar el cierre del menú al salir del contenedor
   useEffect(() => {
     const dropdown = dropdownRef.current;
@@ -56,14 +59,14 @@ const Header: React.FC = () => {
 
   return (
     <div>
-      <div className='h-[0rem]'>
+      <div id='rocStart' className='h-[0rem]'>
         <img 
-          className={styles.rocStartWhaterMark} 
+          className={`${styles.rocStartWhaterMark} ${isDeployPath ? 'opacity-0' : ''}`} 
           src="https://gist.githubusercontent.com/DavidRocFeler/1e71d964e24ce4beef6d5c18e9ed7080/raw/59d678e018f505b325002b6af79c29d107a135d0/StartShadow.svg" 
           alt="StartWaterMark" 
         />
         <img 
-          className={styles.rocStartWhaterMark2} 
+          className={`${styles.rocStartWhaterMark2} ${isDeployPath ? 'opacity-0' : ''}`} 
           src="https://gist.githubusercontent.com/DavidRocFeler/e7b4aa63689c9fd651afd3e0f54b4478/raw/24e6e59e3c4afb178660853376aec5f687232818/StartXL.svg" 
           alt="StartWaterMark" 
         />
