@@ -69,3 +69,11 @@ export interface ICoverDeploysProps {
 export interface ICoverDeployCarouselProps {
     items: ICoverDeploysProps[];
   }
+export interface IDeployArticleProps {
+    id: number;
+    title: string;
+    text: string;
+    tech: string;
+    img: string;
+    link: string;
+}

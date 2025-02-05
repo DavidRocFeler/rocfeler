@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { fetchGitHubProjects } from '@/server/FetchGithubProjects.server';
 import GitHubCard from './GithubCard';
@@ -8,26 +8,38 @@ const GitHubProjectsList: React.FC = () => {
   const [repos, setRepos] = useState<any[]>([]);
   const [languages, setLanguages] = useState<Record<string, Record<string, number>>>({});
   const [currentPage, setCurrentPage] = useState(1);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [slideDirection, setSlideDirection] = useState<'left' | 'right' | ''>('');
   
   const getColumnsPerRow = () => {
     if (typeof window !== 'undefined') {
       const width = window.innerWidth;
-      if (width < 500) return 1;  // 4 total cards (1x4)
-      if (width < 900) return 2;  // 8 total cards (2x4)
-      if (width < 1200) return 3; // 12 total cards (3x4)
-      return 4;                   // 16 total cards (4x4)
+      if (width < 500) return 1;      // móvil
+      if (width < 900) return 2;      // tablet
+      if (width < 1200) return 3;     // laptop
+      if (width < 1440) return 4;     // desktop
+      return 5;                       // pantalla grande
+    }
+    return 5;
+  };
+
+  const getMaxRowsForWidth = () => {
+    if (typeof window !== 'undefined') {
+      const width = window.innerWidth;
+      if (width >= 1440) return 5;    // 5 filas en pantallas grandes
+      return 4;                       // 4 filas en el resto
     }
     return 4;
   };
 
   const [columnsPerRow, setColumnsPerRow] = useState(getColumnsPerRow());
-  const cardsPerPage = columnsPerRow * 4; // Siempre 4 filas
+  const [maxRows, setMaxRows] = useState(getMaxRowsForWidth());
+  const cardsPerPage = columnsPerRow * maxRows;
 
   useEffect(() => {
     const handleResize = () => {
       setColumnsPerRow(getColumnsPerRow());
+      setMaxRows(getMaxRowsForWidth());
+      setCurrentPage(1);
     };
 
     window.addEventListener('resize', handleResize);
@@ -59,104 +71,99 @@ const GitHubProjectsList: React.FC = () => {
   }, []);
 
   const totalPages = Math.ceil(repos.length / cardsPerPage);
+  const indexOfLastItem = currentPage * cardsPerPage;
+  const indexOfFirstItem = indexOfLastItem - cardsPerPage;
+  const currentItems = repos.slice(indexOfFirstItem, indexOfLastItem);
 
-  const getPages = () => {
-    const pages = [];
-    for (let i = 0; i < totalPages; i++) {
-      const startIndex = i * cardsPerPage;
-      const endIndex = startIndex + cardsPerPage;
-      pages.push(repos.slice(startIndex, endIndex));
-    }
-    return pages;
+  // Verificar si necesitamos paginación basado en el ancho de la pantalla
+  const needsPagination = repos.length > columnsPerRow * maxRows;
+
+  const calculateGridRows = () => {
+    const itemCount = currentItems.length;
+    return Math.ceil(itemCount / columnsPerRow);
   };
 
-  const goToNextPage = () => {
-    if (currentPage < totalPages && !isAnimating) {
-      setIsAnimating(true);
-      setCurrentPage(prev => prev + 1);
-      setTimeout(() => setIsAnimating(false), 500);
-    }
-  };
-
-  const goToPrevPage = () => {
-    if (currentPage > 1 && !isAnimating) {
-      setIsAnimating(true);
-      setCurrentPage(prev => prev - 1);
-      setTimeout(() => setIsAnimating(false), 500);
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setSlideDirection('right');
+      setTimeout(() => {
+        setCurrentPage(prev => prev - 1);
+      }, 50);
+      setTimeout(() => {
+        setSlideDirection('');
+      }, 300);
     }
   };
 
-  // Calcular el ancho de cada página basado en el contenedor padre
-  const getPageWidth = () => {
-    if (containerRef.current) {
-      return containerRef.current.clientWidth;
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setSlideDirection('left');
+      setTimeout(() => {
+        setCurrentPage(prev => prev + 1);
+      }, 50);
+      setTimeout(() => {
+        setSlideDirection('');
+      }, 300);
     }
-    return 0;
   };
 
   return (
-    <div className="w-[95%] md:w-[80%] xl:w-[95%] mx-auto" ref={containerRef}>
-      <div className="overflow-x-hidden">
+    <div className="w-[95%] md:w-[80%] xl:w-[95%] mx-auto">
+      <div className="overflow-hidden">
         <div 
-          className="flex transition-transform duration-500 ease-in-out"
+          className={`
+            grid 
+            grid-cols-1 
+            s:grid-cols-2 
+            xl:grid-cols-3 
+            xxl:grid-cols-4 
+            xxxl:grid-cols-5
+            gap-x-10 
+            gap-y-10
+            transition-transform duration-300 ease-in-out
+            ${slideDirection === 'left' ? 'translate-x-[-100%] opacity-0' : ''}
+            ${slideDirection === 'right' ? 'translate-x-[100%] opacity-0' : ''}
+            ${!slideDirection ? 'translate-x-0 opacity-100' : ''}
+          `}
           style={{
-            transform: `translateX(-${(currentPage - 1) * getPageWidth()}px)`,
-            width: 'fit-content'
+            gridTemplateRows: `repeat(${calculateGridRows()}, minmax(0, 1fr))`,
           }}
         >
-          {getPages().map((pageRepos, pageIndex) => (
-            <div 
-              key={pageIndex}
-              style={{ width: `${getPageWidth()}px` }}
-              className="flex-shrink-0"
-            >
-              <div className={`
-                grid 
-                grid-cols-1 
-                s:grid-cols-2 
-                xl:grid-cols-3 
-                xxl:grid-cols-4
-                xxxl:grid-cols-5
-                gap-x-10 
-                gap-y-10
-                grid-rows-4
-              `}>
-                {pageRepos.map((repo) => (
-                  <GitHubCard
-                    key={repo.id}
-                    name={repo.name}
-                    htmlUrl={repo.html_url}
-                    isPublic={!repo.private}
-                    languages={languages[repo.id] || {}}
-                  />
-                ))}
-              </div>
-            </div>
+          {currentItems.map((repo) => (
+            <GitHubCard
+              key={repo.id}
+              name={repo.name}
+              htmlUrl={repo.html_url}
+              isPublic={!repo.private}
+              languages={languages[repo.id] || {}}
+            />
           ))}
         </div>
       </div>
 
-      <div className="flex items-center text-[#B2B2B2] justify-center mt-8 gap-8">
-        <button 
-          onClick={goToPrevPage}
-          disabled={currentPage === 1 || isAnimating}
-          className="p-2 disabled:opacity-50 hover:bg-[#656565] rounded-full transition"
-        >
-          <ArrowLeft size={24} />
-        </button>
+      {needsPagination && (
+        <div className="flex items-center text-[#B2B2B2] justify-center mt-8 gap-8">
+          <button 
+            onClick={handlePrevPage}
+            disabled={currentPage === 1}
+            className="p-2 disabled:opacity-50 hover:bg-[#656565] rounded-full transition"
+          >
+            <ArrowLeft size={24} />
+          </button>
 
-        <div className="text-lg font-medium">
-          {currentPage}/{totalPages}
+          <div className="text-lg font-medium">
+            {currentPage}/{totalPages}
+          </div>
+
+          <button 
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+            className="p-2 disabled:opacity-50 hover:bg-[#656565] rounded-full transition"
+          >
+            <ArrowRight size={24} />
+          </button>
         </div>
-
-        <button 
-          onClick={goToNextPage}
-          disabled={currentPage === totalPages || isAnimating}
-          className="p-2 disabled:opacity-50 hover:bg-[#656565] rounded-full transition"
-        >
-          <ArrowRight size={24} />
-        </button>
-      </div>
+      )}
     </div>
   );
 };

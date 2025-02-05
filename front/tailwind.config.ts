@@ -22,6 +22,7 @@ export default {
         sm: '600px',
         md: '700px',
         mdd: '750px',
+        mddd: '800px',
         xl: '900px',
         xll: '1000px',
         xxl: '1200px',

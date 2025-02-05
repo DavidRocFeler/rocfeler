@@ -1,21 +1,25 @@
 /* CoverDeploy.module.css */
 
-/* Estilos para la barra de desplazamiento horizontal */
+.scrollContainer {
+  overflow-x: auto;
+  scrollbar-width: thin; /* Para navegadores que soportan scrollbar-width */
+  scrollbar-color: #5800ab transparent; /* Color del thumb y track */
+}
+
 .scrollContainer::-webkit-scrollbar {
-    height: 8px; /* Altura de la barra de desplazamiento */
-  }
-  
-  .scrollContainer::-webkit-scrollbar-track {
-    background: transparent; /* Color de fondo de la pista */
-    border-radius: 4px; /* Bordes redondeados */
-  }
-  
-  .scrollContainer::-webkit-scrollbar-thumb {
-    margin-top: 5px;
-    background: #5800ab; /* Color del thumb (la barra que se mueve) */
-    border-radius: 4px; /* Bordes redondeados */
-  }
-  
-  .scrollContainer::-webkit-scrollbar-thumb:hover {
-    background: #a855f7; /* Color del thumb al pasar el mouse */
-  }
+  height: 8px; /* Altura de la barra de desplazamiento */
+}
+
+.scrollContainer::-webkit-scrollbar-track {
+  background: transparent; /* Color de fondo de la pista */
+  border-radius: 4px; /* Bordes redondeados */
+}
+
+.scrollContainer::-webkit-scrollbar-thumb {
+  background: #5800ab; /* Color del thumb (la barra que se mueve) */
+  border-radius: 4px; /* Bordes redondeados */
+}
+
+.scrollContainer::-webkit-scrollbar-thumb:hover {
+  background: #a855f7; /* Color del thumb al pasar el mouse */
+}
