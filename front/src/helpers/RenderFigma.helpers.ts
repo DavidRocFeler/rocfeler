@@ -28,8 +28,8 @@ export const renderFigmaHelpers: IRenderFigmaProps[] = [
     },
     {
         id: 6,
-        fileKey: "ffGXkhcR2IZOgVZyPK8tjM",
-        link: 'https://www.figma.com/design/ffGXkhcR2IZOgVZyPK8tjM/Ingenius?t=hVkbrE9Umwd7SdCq-0'
+        fileKey: "rwJ8uPXSx2AWnfKkdrIG93",
+        link: 'https://www.figma.com/design/rwJ8uPXSx2AWnfKkdrIG93/UltraX?node-id=0-1&p=f&t=JEGxDftNgu3Oh9gA-0'
     },
     {
         id: 7,
