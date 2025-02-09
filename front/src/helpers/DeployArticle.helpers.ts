@@ -43,11 +43,11 @@ export const deployArticleHelpers: IDeployArticleProps[] = [
     },
     {
         id: 6, 
-        title: 'StreamD',
+        title: 'DTV',
         text: 'Ingenius is an innovative platform powered by artificial intelligence that allows users to create courses quickly and efficiently. Through personalized prompts and the integration of their own resources, creators can generate structured, high-quality educational content. The AI optimizes course organization, tailoring it to the needs of the target audience and facilitating the production of training materials without requiring advanced technical knowledge.',
-        tech: 'JavaScript - HTML - BootStrap - Express - Axios - Mongose - Bundler - Figma - Photoshop',
+        tech: 'TypeScript - React - Next - Express - PostgreSQL - Tailwind - Figma - Photoshop',
         img: '/LogoDTV.png',
-        link: 'https://ingenius-lydg.vercel.app'
+        link: 'https://dtv-mu.vercel.app'
     },
     {
         id: 7, 
@@ -65,4 +65,12 @@ export const deployArticleHelpers: IDeployArticleProps[] = [
         img: '/LogoBusGoNL.png',
         link: 'https://ingenius-lydg.vercel.app'
     },
+    {
+        id: 9, 
+        title: 'StreamD',
+        text: 'Ingenius is an innovative platform powered by artificial intelligence that allows users to create courses quickly and efficiently. Through personalized prompts and the integration of their own resources, creators can generate structured, high-quality educational content. The AI optimizes course organization, tailoring it to the needs of the target audience and facilitating the production of training materials without requiring advanced technical knowledge.',
+        tech: 'JavaScript - HTML - BootStrap - Express - Axios - Mongose - Bundler - Figma - Photoshop',
+        img: '/LogoDTV.png',
+        link: 'https://ingenius-lydg.vercel.app'
+    }
 ]
