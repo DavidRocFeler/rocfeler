@@ -31,7 +31,7 @@ export const deployArticleHelpers: IDeployArticleProps[] = [
         text: 'Ingenius is an innovative platform powered by artificial intelligence that allows users to create courses quickly and efficiently. Through personalized prompts and the integration of their own resources, creators can generate structured, high-quality educational content. The AI optimizes course organization, tailoring it to the needs of the target audience and facilitating the production of training materials without requiring advanced technical knowledge.',
         tech: 'HTML - CSS - JavaScript - PHP - PHPMyAdmin - Figma - Photoshop',
         img: '/LogoStart4.png',
-        link: 'https://ingenius-lydg.vercel.app'
+        link: 'https://www.manager-start4.nl'
     },
     {
         id: 5, 
@@ -55,7 +55,7 @@ export const deployArticleHelpers: IDeployArticleProps[] = [
         text: 'Ingenius is an innovative platform powered by artificial intelligence that allows users to create courses quickly and efficiently. Through personalized prompts and the integration of their own resources, creators can generate structured, high-quality educational content. The AI optimizes course organization, tailoring it to the needs of the target audience and facilitating the production of training materials without requiring advanced technical knowledge.',
         tech: 'HTML - JavaScript - TypeScript - Express - Postgres - Photoshop - Figma',
         img: '/LogoCoinveloper.png',
-        link: 'https://ingenius-lydg.vercel.app'
+        link: 'https://www.coinveloper.com'
     },
     {
         id: 8, 
