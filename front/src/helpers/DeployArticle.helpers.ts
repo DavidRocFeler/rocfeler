@@ -63,7 +63,7 @@ export const deployArticleHelpers: IDeployArticleProps[] = [
         text: 'Ingenius is an innovative platform powered by artificial intelligence that allows users to create courses quickly and efficiently. Through personalized prompts and the integration of their own resources, creators can generate structured, high-quality educational content. The AI optimizes course organization, tailoring it to the needs of the target audience and facilitating the production of training materials without requiring advanced technical knowledge.',
         tech: 'JavaScript - HTML - BootStrap - Express - Axios - Mongose - Bundler - Figma - Photoshop',
         img: '/LogoDTV.png',
-        link: 'https://streamd-alpha.vercel.app/pages/Home.html'
+        link: 'https://streamd-alpha.vercel.app'
     },
     {
         id: 9, 
