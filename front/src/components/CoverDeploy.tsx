@@ -1,85 +1,120 @@
-'use client'
 import { ICoverDeployCarouselProps } from '@/interfaces/types'
 import React, { useEffect, useState, useRef } from 'react'
 import styles from '../style/CoverDeploy.module.css'
 
 const CoverDeploy: React.FC<ICoverDeployCarouselProps> = ({ items }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
-  const [scrollDirection, setScrollDirection] = useState(1) // 1 = Derecha, -1 = Izquierda
-  const scrollSpeedRef = useRef(0.1) // Velocidad constante del scroll
+  const [scrollDirection, setScrollDirection] = useState(1)
+  const [isScrolling, setIsScrolling] = useState(true)
   const [showOverlay, setShowOverlay] = useState(false)
+  const [isTouch, setIsTouch] = useState(false)
+  const lastScrollTimeRef = useRef<number>(0)
+  
+  // Configuration
+  const SCROLL_SPEED = 1.5 // Increased for better visibility
+  const SCROLL_INTERVAL = 7000 // Overlay toggle interval in ms
+  const FRAME_RATE = 1000 / 60 // 60 FPS
+
+  useEffect(() => {
+    setIsTouch('ontouchstart' in window)
+  }, [])
+
+  const handleMouseEnter = () => {
+    setIsScrolling(false)
+  }
+
+  const handleMouseLeave = () => {
+    setIsScrolling(true)
+  }
 
   const handleRedirectDeploy = (link?: string) => {
     if (link) {
-      window.open(link, '_blank') // Abre el enlace en una nueva pestaña
-    } else {
-      console.warn('No link provided for this item.') // Advertencia si no hay enlace
+      window.open(link, '_blank')
     }
   }
 
-   // Efecto para cambiar la opacidad cada 7 segundos
-   useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       setShowOverlay(prev => !prev)
-    }, 7000)
+    }, SCROLL_INTERVAL)
     return () => clearInterval(interval)
   }, [])
 
-  // Efecto mejorado para el auto-scroll suave bidireccional
+  // Improved smooth scroll effect
   useEffect(() => {
+    if (isTouch || !isScrolling) return
+
     let animationFrameId: number
-    let lastTimestamp = 0
-    
-    const smoothScroll = (timestamp: number) => {
-      if (!lastTimestamp) lastTimestamp = timestamp
-      const deltaTime = timestamp - lastTimestamp
-      lastTimestamp = timestamp
 
-      if (scrollContainerRef.current) {
-        const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current
-        const maxScroll = scrollWidth - clientWidth
+    const animate = (timestamp: number) => {
+      const elapsed = timestamp - lastScrollTimeRef.current
 
-        // Cambiar dirección al llegar a los límites
-        if (scrollLeft >= maxScroll) {
-          setScrollDirection(-1)
-        } else if (scrollLeft <= 0) {
-          setScrollDirection(1)
+      if (elapsed > FRAME_RATE) { // Limit to 60 FPS
+        lastScrollTimeRef.current = timestamp
+
+        if (scrollContainerRef.current) {
+          const container = scrollContainerRef.current
+          const { scrollLeft, scrollWidth, clientWidth } = container
+          const maxScroll = scrollWidth - clientWidth
+
+          // Change direction at boundaries with a small buffer
+          if (scrollLeft >= maxScroll - 2) {
+            setScrollDirection(-1)
+          } else if (scrollLeft <= 2) {
+            setScrollDirection(1)
+          }
+
+          // Calculate new scroll position with delta time
+          const delta = SCROLL_SPEED * (elapsed / FRAME_RATE)
+          const newScrollLeft = scrollLeft + (delta * scrollDirection)
+
+          // Apply scroll with requestAnimationFrame for smoother animation
+          container.scrollLeft = newScrollLeft
         }
-
-        // Aplicar el scroll con velocidad constante
-        const scrollAmount = scrollSpeedRef.current * deltaTime * scrollDirection
-        scrollContainerRef.current.scrollLeft += scrollAmount
       }
 
-      animationFrameId = requestAnimationFrame(smoothScroll)
+      animationFrameId = requestAnimationFrame(animate)
     }
 
-    animationFrameId = requestAnimationFrame(smoothScroll)
-    return () => cancelAnimationFrame(animationFrameId)
-  }, [scrollDirection])
+    animationFrameId = requestAnimationFrame(animate)
+
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId)
+      }
+    }
+  }, [scrollDirection, isTouch, isScrolling])
+
+  const handleTouchStart = () => {
+    setIsScrolling(false)
+  }
+
+  const handleTouchEnd = () => {
+    // Add a small delay before resuming automatic scroll
+    setTimeout(() => setIsScrolling(true), 1000)
+  }
 
   return (
     <section className="relative w-full">
       <div
         ref={scrollContainerRef}
         className={`${styles.scrollContainer} w-full overflow-x-auto relative scroll-smooth`}
-        style={{
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
-          WebkitOverflowScrolling: 'touch',
-          scrollBehavior: 'smooth'
-        }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
         <div className="flex">
           {items.map((item) => (
             <img
               key={item.id}
               className={`cursor-pointer object-cover h-[300px] min-w-[800px] sm:min-w-full sm:h-auto transition-all duration-1500 ease-in-out ${
-                showOverlay ? 'opacity-30' : 'opacity-60'
+                showOverlay ? 'opacity-60' : 'opacity-60'
               }`}
               src={item.img}
               alt={`Project ${item.id}`}
               onClick={() => handleRedirectDeploy(item.link)}
+              draggable={false}
             />
           ))}
         </div>
@@ -88,5 +123,4 @@ const CoverDeploy: React.FC<ICoverDeployCarouselProps> = ({ items }) => {
   )
 }
 
-export default CoverDeploy;
-
+export default CoverDeploy

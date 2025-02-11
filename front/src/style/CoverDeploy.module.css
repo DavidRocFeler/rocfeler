@@ -1,25 +1,69 @@
 /* CoverDeploy.module.css */
-
 .scrollContainer {
   overflow-x: auto;
-  scrollbar-width: thin; /* Para navegadores que soportan scrollbar-width */
-  scrollbar-color: #5800ab transparent; /* Color del thumb y track */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #7928c9 #03001d;
+  position: relative;
+  cursor: grab;
+  
+  /* Estilos universales de scrollbar */
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #7928c9;
+    border-radius: 10px;
+    height: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color:  #9150d2;
+  }
+
+  /* Estilos específicos para móviles */
+  @media (hover: none) and (pointer: coarse) {
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #7928c9;
+      border-radius: 10px;
+    }
+  }
 }
 
-.scrollContainer::-webkit-scrollbar {
-  height: 8px; /* Altura de la barra de desplazamiento */
+/* Estado activo */
+.scrollContainer:active {
+  cursor: grabbing;
 }
 
-.scrollContainer::-webkit-scrollbar-track {
-  background: transparent; /* Color de fondo de la pista */
-  border-radius: 4px; /* Bordes redondeados */
+/* Optimizaciones de rendimiento */
+.scrollContainer > div {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-.scrollContainer::-webkit-scrollbar-thumb {
-  background: #5800ab; /* Color del thumb (la barra que se mueve) */
-  border-radius: 4px; /* Bordes redondeados */
-}
-
-.scrollContainer::-webkit-scrollbar-thumb:hover {
-  background: #a855f7; /* Color del thumb al pasar el mouse */
+/* Asegurar visibilidad en iOS */
+@supports (-webkit-touch-callout: none) {
+  .scrollContainer {
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+      height: 8px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: #7928c9;
+    }
+  }
 }
