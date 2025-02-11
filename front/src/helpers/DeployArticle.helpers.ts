@@ -68,8 +68,8 @@ export const deployArticleHelpers: IDeployArticleProps[] = [
     {
         id: 9, 
         title: 'BusGoNL',
-        text: 'Ingenius is an innovative platform powered by artificial intelligence that allows users to create courses quickly and efficiently. Through personalized prompts and the integration of their own resources, creators can generate structured, high-quality educational content. The AI optimizes course organization, tailoring it to the needs of the target audience and facilitating the production of training materials without requiring advanced technical knowledge.',
-        tech: 'HTML - JavaScript - CSS - Photoshop - Figma',
+        text: 'This page aims to display relevant information about vehicle rentals with high-quality icons, images, and a responsive design for all devices. The template is built using pure CSS, HTML, and JavaScript. The prototype was created using Photoshop and Figma.',
+        tech: 'HTML - JavaScript - CSS - Photoshop - Figma - Responsive',
         img: '/LogoBusGoNL.png',
         link: 'https://davidrocfeler.github.io/BusGoNL/'
     },
