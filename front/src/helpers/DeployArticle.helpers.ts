@@ -60,7 +60,7 @@ export const deployArticleHelpers: IDeployArticleProps[] = [
     {
         id: 8, 
         title: 'StreamD',
-        text: 'Ingenius is an innovative platform powered by artificial intelligence that allows users to create courses quickly and efficiently. Through personalized prompts and the integration of their own resources, creators can generate structured, high-quality educational content. The AI optimizes course organization, tailoring it to the needs of the target audience and facilitating the production of training materials without requiring advanced technical knowledge.',
+        text: 'StreamD is an application designed for managing and displaying images through an API connected to a NoSQL database on MongoDB Atlas. The interface is built with HTML, CSS, and Bootstrap, while dynamic functionalities are optimized and modularized using Bundler.js, a JavaScript bundler similar to Webpack. The backend is deployed on Render, and the frontend on Vercel, ensuring fast and efficient performance. Additionally, the application features an "Upload" section, allowing users to upload their content and have it automatically rendered on the platform.',
         tech: 'JavaScript - HTML - BootStrap - Express - Axios - Mongose - Bundler - Figma - Photoshop',
         img: '/LogoDTV.png',
         link: 'https://streamd-alpha.vercel.app'
