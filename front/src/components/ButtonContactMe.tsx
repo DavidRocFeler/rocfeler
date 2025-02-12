@@ -1,10 +1,13 @@
 import React from 'react'
 import styles from '../style/ButtonContactMe.module.css'
+import { IToggleModalProps } from '@/interfaces/types'
 
-const ButtonContactMe = () => {
+const ButtonContactMe: React.FC<IToggleModalProps> = ({toggleModal}) => {
   return (
     <>
-         <button className={`${styles.rocButton}`}>
+         <button 
+         onClick={toggleModal}
+         className={`${styles.rocButton}`}>
             Contact me
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -19,4 +22,4 @@ const ButtonContactMe = () => {
   )
 }
 
-export default ButtonContactMe
+export default ButtonContactMe;

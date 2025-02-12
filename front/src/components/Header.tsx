@@ -5,11 +5,18 @@ import Link from 'next/link'
 import { Menu } from 'lucide-react'
 import ButtonContactMe from './ButtonContactMe'
 import { usePathname } from 'next/navigation'
+import ContactModal from './ContactModal'
+import EmailForm from './EmailForm'
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLUListElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const [ contacOpentModal, setContactOpenModal ] = useState(false);
+
+  const handleOpenModal = () => {
+    setContactOpenModal(!contacOpentModal);
+  }
 
   const pathname = usePathname();
 
@@ -58,7 +65,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <div>
+    <header>
       <div id='rocStart' className='h-[0rem]'>
         <img 
           className={`${styles.rocStartWhaterMark} ${isDeployPath ? 'opacity-0' : ''}`} 
@@ -118,7 +125,9 @@ const Header: React.FC = () => {
         </nav>
 
         <div className='flex flex-row absolute right-[1rem] xxl:right-[3rem] h-[2rem] xxl:h-[2.34rem]'>
-          <ButtonContactMe/>
+          <ButtonContactMe
+          toggleModal={handleOpenModal}
+          />
           <div className="block xxl:hidden">
             <button onClick={toggleMenu}>
               <Menu size={32} color="white" />
@@ -155,6 +164,7 @@ const Header: React.FC = () => {
           </li>
           <button 
             className={`${styles.rocButton}`}
+            onClick={handleOpenModal}
           >
             Contact me
             <svg
@@ -172,7 +182,21 @@ const Header: React.FC = () => {
       <svg height="1" width="100%" className='xxl:mt-0 mt-[3rem]'>
         <line x1="0" y1="0" x2="100%" y2="0" className='stroke-white stroke-opacity-50 stroke-[0.3]'/>
       </svg>
-    </div>
+      {contacOpentModal && (
+        <div className="fixed z-[9999] inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white w-[90%] sm:w-[50%] xxl:w-[30%] h-[27rem] p-6 rounded-[10px] relative pt-[2rem]">
+            <button 
+              className="absolute top-0 right-[0.375rem] text-gray-600 hover:text-gray-900"
+              onClick={handleOpenModal}
+            >
+              ✖
+            </button>
+            <ContactModal />
+            <EmailForm/>
+          </div>
+        </div>
+      )}
+    </header>
   )
 }
 

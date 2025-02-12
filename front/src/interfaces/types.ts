@@ -77,3 +77,6 @@ export interface IDeployArticleProps {
     img: string;
     link: string;
 }
+export interface IToggleModalProps {
+    toggleModal: () => void;
+}
