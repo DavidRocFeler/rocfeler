@@ -5,7 +5,7 @@ const ButtonDownloadCv: React.FC = () => {
   return (
     <a 
     href="/DAVID_PALOMINO_UX_FRONTEND.pdf" 
-    download="DAVID_PALOMINO_CV.pdf" 
+    download="DAVID_PALOMINO_UX_FRONTEND.pdf" 
     className={styles.rocButton}>
             Download cv 
               <svg
