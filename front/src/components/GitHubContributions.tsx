@@ -106,7 +106,7 @@ const GitHubContributions = () => {
   }
 
   return (
-    <div className="bg-transparent flex flex-col w-[76%] mx-auto justify-center items-center text-white">
+    <div className="bg-transparent flex flex-col w-fit mx-auto justify-center items-center text-white">
       {viewMode === 'four-blocks' ? (
         <>
           <div className='h-[9rem]'>
