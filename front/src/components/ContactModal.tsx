@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ContactModal = () => {
+const ContactModal: React.FC = () => {
   return (
     <div className='flex flex-col items-center'>
         <div className='flex flex-row items-center justify-between w-full mb-[1rem]'>

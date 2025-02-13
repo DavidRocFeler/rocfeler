@@ -65,8 +65,8 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header>
-      <div id='rocStart' className='h-[0rem]'>
+    <header className='pt-[1rem]'>
+      <div id='rocStart' className=' h-0 relative'>
         <img 
           className={`${styles.rocStartWhaterMark} ${isDeployPath ? 'opacity-0' : ''}`} 
           src="https://gist.githubusercontent.com/DavidRocFeler/1e71d964e24ce4beef6d5c18e9ed7080/raw/59d678e018f505b325002b6af79c29d107a135d0/StartShadow.svg" 
