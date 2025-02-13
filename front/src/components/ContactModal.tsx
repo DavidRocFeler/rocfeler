@@ -19,7 +19,7 @@ const ContactModal = () => {
         </div>
 
         <div className='flex flex-row items-center justify-between w-full mb-[1rem]'>
-            <img className="" src="/logoGmail.png" alt="GmailIcom"/>
+            <img className="" src="/LogoGmail.png" alt="GmailIcom"/>
             <p className='font-light text-[0.9rem]'> davidrocfeler@gmail.com</p>
         </div>
   </div>
