@@ -1,12 +1,13 @@
 "use client";
-
+import styles from '../style/GitHubContributions.module.css'
 import { useEffect, useState } from "react";
 
 const GitHubContributions = () => {
   const [contributions, setContributions] = useState<number[][]>([]);
   const [loading, setLoading] = useState(true);
-  const [viewMode, setViewMode] = useState('four-blocks');
+  const [viewMode, setViewMode] = useState('four-blocks'); // 'four-blocks', 'split-view', 'full-view'
   const [totalContributions, setTotalContributions] = useState(0);
+
 
   useEffect(() => {
     const fetchContributions = async () => {
@@ -50,11 +51,12 @@ const GitHubContributions = () => {
       }
     };
 
-    handleResize();
+    handleResize(); // Initial check
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const months = ["Feb" ,"Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb"];
   const weekdays = ["Mon", "", "Wed", "", "Fri", "", ""];
 
   const getColor = (count: number) => {
@@ -65,69 +67,33 @@ const GitHubContributions = () => {
     return "bg-green-900";
   };
 
-  const getMonthLabels = (startWeek: number, numWeeks: number) => {
-    const date = new Date();
-    date.setDate(date.getDate() - ((52 - startWeek) * 7)); // Comenzar desde la primera semana del rango
-    
-    const months: { name: string, week: number }[] = [];
-    let currentMonth = date.getMonth();
-    
-    for (let week = 0; week < numWeeks; week++) {
-      const monthIndex = date.getMonth();
-      if (monthIndex !== currentMonth) {
-        months.push({
-          name: new Intl.DateTimeFormat('en-US', { month: 'short' }).format(date),
-          week: week
-        });
-        currentMonth = monthIndex;
-      }
-      date.setDate(date.getDate() + 7);
-    }
-    
-    return months;
-  };
-
-  const renderBlock = (startWeek: number, numWeeks: number, showWeekdays: boolean = false) => {
-    const monthLabels = getMonthLabels(startWeek, numWeeks);
-    
-    return (
-      <div className="flex mb-4">
-        {showWeekdays && (
-          <div className="flex flex-col justify-between mt-[1.5rem] mr-[0.5rem]">
-            {weekdays.map((day, index) => (
-              <div key={index} className="h-4 text-xs text-gray-400">{day}</div>
-            ))}
-          </div>
-        )}
-        <div className="flex flex-col">
-          <div style={{ gridTemplateColumns: `repeat(${numWeeks}, 1fr)` }} className="relative grid text-xs text-gray-400 mb-1 h-4">
-            {monthLabels.map((month, index) => (
-              <div 
-                key={index} 
-                className="absolute text-center"
-                style={{ 
-                  left: `${(month.week / numWeeks) * 100}%`,
-                  width: '3rem',
-                  transform: 'translateX(-50%)'
-                }}
-              >
-                {month.name}
-              </div>
-            ))}
-          </div>
-          <div className="grid gap-1 mx-auto" style={{ gridTemplateColumns: `repeat(${numWeeks}, 1fr)` }}>
-            {contributions.slice(startWeek, startWeek + numWeeks).map((week, weekIndex) => (
-              <div key={weekIndex} className="flex flex-col gap-1">
-                {week.map((day, dayIndex) => (
-                  <div key={dayIndex} className={`w-4 h-4 rounded-[4px] ${getColor(day)}`} />
-                ))}
-              </div>
-            ))}
-          </div>
+  const renderBlock = (startMonth: number, endMonth: number, startWeek: number, endWeek: number, showWeekdays: boolean = false) => (
+    <div className="flex mb-4">
+      {showWeekdays && (
+        <div className="flex flex-col justify-between mt-[1.5rem] mr-[0.5rem]">
+          {weekdays.map((day, index) => (
+            <div key={index} className="h-4 text-xs text-gray-400">{day}</div>
+          ))}
+        </div>
+      )}
+      <div className="flex flex-col">
+        <div style={{ gridTemplateColumns: `repeat(${endWeek - startWeek}, 1fr)` }} className="border-solid flex flx-row gap-x-[2.8rem] text-xs text-gray-400 pl-2 mb-1">
+          {months.slice(startMonth, endMonth).map((month, index) => (
+            <p key={index} className="text-center col-span-4">{month}</p>
+          ))}
+        </div>
+        <div className="grid gap-1 mx-auto" style={{ gridTemplateColumns: `repeat(${endWeek - startWeek}, 1fr)` }}>
+          {contributions.slice(startWeek, endWeek).map((week, weekIndex) => (
+            <div key={weekIndex} className="flex flex-col gap-1">
+              {week.map((day, dayIndex) => (
+                <div key={dayIndex} className={`w-3 h-3 rounded-[4px] ${getColor(day)}`} />
+              ))}
+            </div>
+          ))}
         </div>
       </div>
-    );
-  };
+    </div>
+  );
 
   if (loading) {
     return (
@@ -140,39 +106,67 @@ const GitHubContributions = () => {
   }
 
   return (
-    <div className="bg-black flex flex-col w-[76%] mx-auto justify-center items-center text-white rounded-lg p-4">
+    <div className="bg-transparent flex flex-col w-[76%] mx-auto justify-center items-center text-white">
       {viewMode === 'four-blocks' ? (
         <>
-          {renderBlock(0, 13, true)}
-          {renderBlock(13, 26)}
-          {renderBlock(26, 39)}
-          {renderBlock(39, 52)}
+          <div className='h-[9rem]'>
+              {renderBlock(1, 4, 0, 13, true)} {/* First 3 months with weekdays */}
+          </div>
+          <div className="pl-[0.5rem]"> 
+            {renderBlock(4, 7, 13, 26)} {/* Second 3 months */}
+          </div>
+          <div className='mt-0'>
+            {renderBlock(7, 10, 26, 39)} {/* Third 3 months */}
+          </div>
+          <div className='mb-0'>
+            {renderBlock(10, 13, 39, 52)} {/* Last 3 months */}
+          </div>
         </>
       ) : viewMode === 'split-view' ? (
         <>
-          {renderBlock(0, 26, true)}
-          {renderBlock(26, 52)}
+          {renderBlock(1, 7, 0, 26, true)} {/* First 6 months with weekdays */}
+          <div className={`ml-[1.8rem] ${styles.SplitView}`}>
+            {renderBlock(7, 13, 26, 53)} {/* Last 6 months */}
+          </div>
         </>
       ) : (
         // Full view (> 1200px)
         <div className="flex flex-col">
-          {renderBlock(0, 52, true)}
+          <div className="flex flex-row pl-[2rem] gap-x-[2.7rem] text-xs text-gray-400 mb-1">
+            {months.map((month, index) => (
+              <div key={index} className="text-center col-span-4">{month}</div>
+            ))}
+          </div>
+          <div className="flex">
+            <div className="flex flex-col justify-between mr-[0.5rem]">
+              {weekdays.map((day, index) => (
+                <div key={index} className="h-4 text-xs text-gray-400">{day}</div>
+              ))}
+            </div>
+            <div className="grid gap-1 mx-auto" style={{ gridTemplateColumns: "repeat(53, 1fr)" }}>
+              {contributions.map((week, weekIndex) => (
+                <div key={weekIndex} className="flex flex-col gap-1">
+                  {week.map((day, dayIndex) => (
+                    <div key={dayIndex} className={`w-3 h-3 rounded-[4px] ${getColor(day)}`} />
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       )}
 
-      <div className="flex flex-col items-end w-full">
-        <p className="text-xs text-gray-400">
-          Less &nbsp;
-          <span className="bg-gray-800 w-4 h-4 rounded-[4px] mr-1 inline-block"></span>
-          <span className="bg-green-300 w-4 h-4 rounded-[4px] mr-1 inline-block"></span>
-          <span className="bg-green-500 w-4 h-4 rounded-[4px] mr-1 inline-block"></span>
-          <span className="bg-green-700 w-4 h-4 rounded-[4px] mr-1 inline-block"></span>
-          <span className="bg-green-900 w-4 h-4 rounded-[4px] mr-1 inline-block"></span> &nbsp; More
-        </p>
-        <p className="text-sm text-gray-400 mt-2">
+      <p className="text-xs mt-[1rem] text-gray-400 ml-auto">
+        Less &nbsp;
+        <span className="bg-gray-800 w-3 h-3 rounded-[4px] mr-1 inline-block"></span>
+        <span className="bg-green-300 w-3 h-3 rounded-[4px] mr-1 inline-block"></span>
+        <span className="bg-green-500 w-3 h-3 rounded-[4px] mr-1 inline-block"></span>
+        <span className="bg-green-700 w-3 h-3 rounded-[4px] mr-1 inline-block"></span>
+        <span className="bg-green-900 w-3 h-3 rounded-[4px] mr-1 inline-block"></span> &nbsp; More
+      </p>
+      <p className="text-sm text-gray-400 mt-2 w-full text-end">
           {totalContributions} contributions in the last year
-        </p>
-      </div>
+      </p>
     </div>
   );
 };
