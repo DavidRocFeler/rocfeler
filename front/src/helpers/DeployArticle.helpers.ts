@@ -4,7 +4,7 @@ export const deployArticleHelpers: IDeployArticleProps[] = [
     {
         id: 1, 
         title: 'DTV',
-        text: 'Ingenius is an innovative platform powered by artificial intelligence that allows users to create courses quickly and efficiently. Through personalized prompts and the integration of their own resources, creators can generate structured, high-quality educational content. The AI optimizes course organization, tailoring it to the needs of the target audience and facilitating the production of training materials without requiring advanced technical knowledge.',
+        text: 'This application was prototyped in Figma and developed using Next.js, React, and Express. Users can register and authenticate on the platform. Once inside, they have the ability to upload images through the video upload form, simulating a content streaming feature (limited to images in this version). Additionally, other users can comment on streams, edit their comments, or delete them, demonstrating the implementation of a full CRUD system within the application.',
         tech: 'TypeScript - React - Next - Express - PostgreSQL - Tailwind - Figma - Photoshop',
         img: '/LogoDTV.png',
         link: 'https://dtv-mu.vercel.app'

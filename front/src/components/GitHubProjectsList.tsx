@@ -4,17 +4,27 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { fetchGitHubProjects } from '@/server/FetchGithubProjects.server';
 import GitHubCard from './GithubCard';
 
+interface Repository {
+  id: number;
+  name: string;
+  html_url: string;
+  private: boolean;
+  pushed_at: string;
+  languages_url: string;
+}
+
 const GitHubProjectsList: React.FC = () => {
-  const [repos, setRepos] = useState<any[]>([]);
+  const [repos, setRepos] = useState<Repository[]>([]);
   const [languages, setLanguages] = useState<Record<string, Record<string, number>>>({});
   const [currentPage, setCurrentPage] = useState(1);
   const [slideDirection, setSlideDirection] = useState<'left' | 'right' | ''>('');
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [dimensions, setDimensions] = useState({
     columns: 5,
     rows: 4
   });
 
-  // Memoized dimension calculations
   const calculateDimensions = useCallback(() => {
     const width = window.innerWidth;
     const columns = width < 500 ? 1 : 
@@ -27,16 +37,14 @@ const GitHubProjectsList: React.FC = () => {
     return { columns, rows };
   }, []);
 
-  // Handle window resize with debounce
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
 
     const handleResize = () => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
-        const newDimensions = calculateDimensions();
-        setDimensions(newDimensions);
-      }, 250); // Debounce de 250ms
+        setDimensions(calculateDimensions());
+      }, 250);
     };
 
     window.addEventListener('resize', handleResize);
@@ -46,34 +54,38 @@ const GitHubProjectsList: React.FC = () => {
     };
   }, [calculateDimensions]);
 
-  // Initial dimension setup
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setDimensions(calculateDimensions());
     }
   }, [calculateDimensions]);
 
-  // Fetch GitHub data
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
+      setError(null);
       try {
         const reposData = await fetchGitHubProjects();
         setRepos(reposData);
         
         const languagesData: Record<string, Record<string, number>> = {};
         await Promise.all(
-          reposData.map(async (repo: any) => {
+          reposData.map(async (repo: Repository) => {
             const response = await fetch(repo.languages_url, {
               headers: {
                 Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
               },
             });
+            if (!response.ok) throw new Error(`Error fetching languages for ${repo.name}`);
             languagesData[repo.id] = await response.json();
           })
         );
         setLanguages(languagesData);
       } catch (error) {
-        console.error('Error fetching repositories or languages:', error);
+        setError(error instanceof Error ? error.message : 'Error al cargar los repositorios');
+        console.error('Error:', error);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchData();
@@ -93,13 +105,11 @@ const GitHubProjectsList: React.FC = () => {
         (direction === 'next' && currentPage < totalPages)) {
       setSlideDirection(direction === 'prev' ? 'right' : 'left');
       
-      // Smooth scroll to top before page change
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
       });
 
-      // Wait for scroll and animation
       setTimeout(() => {
         setCurrentPage(newPage);
       }, 300);
@@ -109,6 +119,14 @@ const GitHubProjectsList: React.FC = () => {
       }, 600);
     }
   };
+
+  if (isLoading) {
+    return <div className="text-center py-10">Cargando repositorios...</div>;
+  }
+
+  if (error) {
+    return <div className="text-center py-10 text-red-500">Error: {error}</div>;
+  }
 
   return (
     <div className="w-[95%] md:w-[80%] xl:w-[95%] mx-auto">
