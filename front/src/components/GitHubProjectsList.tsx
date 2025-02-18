@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { fetchGitHubProjects } from '@/server/FetchGithubProjects.server';
 import GitHubCard from './GithubCard';
@@ -9,48 +9,57 @@ const GitHubProjectsList: React.FC = () => {
   const [languages, setLanguages] = useState<Record<string, Record<string, number>>>({});
   const [currentPage, setCurrentPage] = useState(1);
   const [slideDirection, setSlideDirection] = useState<'left' | 'right' | ''>('');
-  
-  const getColumnsPerRow = () => {
-    if (typeof window !== 'undefined') {
-      const width = window.innerWidth;
-      if (width < 500) return 1;      // móvil
-      if (width < 900) return 2;      // tablet
-      if (width < 1200) return 3;     // laptop
-      if (width < 1440) return 4;     // desktop
-      return 5;                       // pantalla grande
-    }
-    return 5;
-  };
+  const [dimensions, setDimensions] = useState({
+    columns: 5,
+    rows: 4
+  });
 
-  const getMaxRowsForWidth = () => {
-    if (typeof window !== 'undefined') {
-      const width = window.innerWidth;
-      if (width >= 1440) return 5;    // 5 filas en pantallas grandes
-      return 4;                       // 4 filas en el resto
-    }
-    return 4;
-  };
+  // Memoized dimension calculations
+  const calculateDimensions = useCallback(() => {
+    const width = window.innerWidth;
+    const columns = width < 500 ? 1 : 
+                   width < 900 ? 2 : 
+                   width < 1200 ? 3 : 
+                   width < 1440 ? 4 : 5;
+    
+    const rows = width >= 1440 ? 5 : 4;
+    
+    return { columns, rows };
+  }, []);
 
-  const [columnsPerRow, setColumnsPerRow] = useState(getColumnsPerRow());
-  const [maxRows, setMaxRows] = useState(getMaxRowsForWidth());
-  const cardsPerPage = columnsPerRow * maxRows;
-
+  // Handle window resize with debounce
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+
     const handleResize = () => {
-      setColumnsPerRow(getColumnsPerRow());
-      setMaxRows(getMaxRowsForWidth());
-      setCurrentPage(1);
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        const newDimensions = calculateDimensions();
+        setDimensions(newDimensions);
+      }, 250); // Debounce de 250ms
     };
 
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(timeoutId);
+    };
+  }, [calculateDimensions]);
 
+  // Initial dimension setup
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setDimensions(calculateDimensions());
+    }
+  }, [calculateDimensions]);
+
+  // Fetch GitHub data
   useEffect(() => {
     const fetchData = async () => {
       try {
         const reposData = await fetchGitHubProjects();
         setRepos(reposData);
+        
         const languagesData: Record<string, Record<string, number>> = {};
         await Promise.all(
           reposData.map(async (repo: any) => {
@@ -64,46 +73,40 @@ const GitHubProjectsList: React.FC = () => {
         );
         setLanguages(languagesData);
       } catch (error) {
-        console.error('Error al obtener los repositorios o lenguajes:', error);
+        console.error('Error fetching repositories or languages:', error);
       }
     };
     fetchData();
   }, []);
 
+  const cardsPerPage = dimensions.columns * dimensions.rows;
   const totalPages = Math.ceil(repos.length / cardsPerPage);
   const indexOfLastItem = currentPage * cardsPerPage;
   const indexOfFirstItem = indexOfLastItem - cardsPerPage;
   const currentItems = repos.slice(indexOfFirstItem, indexOfLastItem);
+  const needsPagination = repos.length > cardsPerPage;
 
-  // Verificar si necesitamos paginación basado en el ancho de la pantalla
-  const needsPagination = repos.length > columnsPerRow * maxRows;
+  const handlePageChange = (direction: 'prev' | 'next') => {
+    const newPage = direction === 'prev' ? currentPage - 1 : currentPage + 1;
+    
+    if ((direction === 'prev' && currentPage > 1) || 
+        (direction === 'next' && currentPage < totalPages)) {
+      setSlideDirection(direction === 'prev' ? 'right' : 'left');
+      
+      // Smooth scroll to top before page change
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
 
-  const calculateGridRows = () => {
-    const itemCount = currentItems.length;
-    return Math.ceil(itemCount / columnsPerRow);
-  };
-
-  const handlePrevPage = () => {
-    if (currentPage > 1) {
-      setSlideDirection('right');
+      // Wait for scroll and animation
       setTimeout(() => {
-        setCurrentPage(prev => prev - 1);
-      }, 50);
+        setCurrentPage(newPage);
+      }, 300);
+
       setTimeout(() => {
         setSlideDirection('');
-      }, 300);
-    }
-  };
-
-  const handleNextPage = () => {
-    if (currentPage < totalPages) {
-      setSlideDirection('left');
-      setTimeout(() => {
-        setCurrentPage(prev => prev + 1);
-      }, 50);
-      setTimeout(() => {
-        setSlideDirection('');
-      }, 300);
+      }, 600);
     }
   };
 
@@ -126,7 +129,7 @@ const GitHubProjectsList: React.FC = () => {
             ${!slideDirection ? 'translate-x-0 opacity-100' : ''}
           `}
           style={{
-            gridTemplateRows: `repeat(${calculateGridRows()}, minmax(0, 1fr))`,
+            gridTemplateRows: `repeat(${Math.ceil(currentItems.length / dimensions.columns)}, minmax(0, 1fr))`,
           }}
         >
           {currentItems.map((repo) => (
@@ -144,7 +147,7 @@ const GitHubProjectsList: React.FC = () => {
       {needsPagination && (
         <div className="flex items-center text-[#B2B2B2] justify-center mt-8 gap-8">
           <button 
-            onClick={handlePrevPage}
+            onClick={() => handlePageChange('prev')}
             disabled={currentPage === 1}
             className="p-2 disabled:opacity-50 hover:bg-[#656565] rounded-full transition"
           >
@@ -156,7 +159,7 @@ const GitHubProjectsList: React.FC = () => {
           </div>
 
           <button 
-            onClick={handleNextPage}
+            onClick={() => handlePageChange('next')}
             disabled={currentPage === totalPages}
             className="p-2 disabled:opacity-50 hover:bg-[#656565] rounded-full transition"
           >
