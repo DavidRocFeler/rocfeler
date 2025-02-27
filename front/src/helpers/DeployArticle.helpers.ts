@@ -28,7 +28,7 @@ export const deployArticleHelpers: IDeployArticleProps[] = [
     {
         id: 4, 
         title: 'Henry Commerce',
-        text: 'Ingenius is an innovative platform powered by artificial intelligence that allows users to create courses quickly and efficiently. Through personalized prompts and the integration of their own resources, creators can generate structured, high-quality educational content. The AI optimizes course organization, tailoring it to the needs of the target audience and facilitating the production of training materials without requiring advanced technical knowledge.',
+        text: 'HenryCommerce is an eCommerce platform that allows users to purchase products, manage their shopping cart, and view orders, featuring a complete CRUD system. Developed with Next.js on the front end and Express on the back end, this project was created to showcase the essential development of an online store during my training as a front-end developer, highlighting the integration of modern technologies for a smooth and efficient experience.',
         tech: 'TypeScript - JavaScript - CSS - NextJS - React - Postgress - Express - Tailwind - Figma - Phothosop',
         img: '/das',
         link: 'https://henry-commerce-3v5hqeqt7-davidrocfelers-projects.vercel.app'
