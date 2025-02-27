@@ -44,7 +44,7 @@ export const deployArticleHelpers: IDeployArticleProps[] = [
     {
         id: 6, 
         title: 'Start4',
-        text: 'Ingenius is an innovative platform powered by artificial intelligence that allows users to create courses quickly and efficiently. Through personalized prompts and the integration of their own resources, creators can generate structured, high-quality educational content. The AI optimizes course organization, tailoring it to the needs of the target audience and facilitating the production of training materials without requiring advanced technical knowledge.',
+        text: 'This page features a minimalist and responsive design, optimized for all devices. Its purpose is to offer IT services and allow clients to submit inquiries through a form that is stored in a MySQL database (PHPMyAdmin). The site is built with HTML, pure CSS, PHP, and JavaScript, providing a smooth and efficient experience for users seeking information or support.',
         tech: 'HTML - CSS - JavaScript - PHP - PHPMyAdmin - Figma - Photoshop',
         img: '/LogoStart4.png',
         link: 'https://www.manager-start4.nl'
@@ -52,7 +52,7 @@ export const deployArticleHelpers: IDeployArticleProps[] = [
     {
         id: 7, 
         title: 'Coinveloper',
-        text: 'Ingenius is an innovative platform powered by artificial intelligence that allows users to create courses quickly and efficiently. Through personalized prompts and the integration of their own resources, creators can generate structured, high-quality educational content. The AI optimizes course organization, tailoring it to the needs of the target audience and facilitating the production of training materials without requiring advanced technical knowledge.',
+        text: 'Coinveloper is an app that provides up-to-date information on cryptocurrencies, displaying the Bitcoin price in real-time through an API call to CoinGecko. Its design and name are unique in the blockchain world, offering an intuitive and user-friendly experience. The app is built with HTML, CSS, and JavaScript, providing an attractive and functional interface for users interested in tracking cryptocurrency prices.',
         tech: 'HTML - JavaScript - TypeScript - Express - Postgres - Photoshop - Figma',
         img: '/LogoCoinveloper.png',
         link: 'https://www.coinveloper.com'
