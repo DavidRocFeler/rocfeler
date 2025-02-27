@@ -20,7 +20,7 @@ export const deployArticleHelpers: IDeployArticleProps[] = [
     {
         id: 3, 
         title: 'AgroDexports',
-        text: 'Ingenius is an innovative platform powered by artificial intelligence that allows users to create courses quickly and efficiently. Through personalized prompts and the integration of their own resources, creators can generate structured, high-quality educational content. The AI optimizes course organization, tailoring it to the needs of the target audience and facilitating the production of training materials without requiring advanced technical knowledge.',
+        text: 'Agrodexports is an eCommerce platform transforming agricultural exports from South America to Europe and the U.S. with real-time tracking and a decentralized supply chain. Built with Next.js, React, Nest.js, and Prisma on a PostgreSQL database, it features secure authentication via NextAuth and real-time notifications with Socket.IO. Empowering farmers with visibility and tools, Agrodexports fosters sustainability and global growth in agriculture.',
         tech: 'TypeScript - HTML - CSS - PrismaORM - PostgresSQL - NextJS - React - NextAuth - SoketIO - Figma - Photoshop',
         img: '/AgroDexportsLogo.png',
         link: 'agro-dexports.vercel.app'
