@@ -36,7 +36,7 @@ export const deployArticleHelpers: IDeployArticleProps[] = [
     {
         id: 5, 
         title: 'Drents',
-        text: 'Ingenius is an innovative platform powered by artificial intelligence that allows users to create courses quickly and efficiently. Through personalized prompts and the integration of their own resources, creators can generate structured, high-quality educational content. The AI optimizes course organization, tailoring it to the needs of the target audience and facilitating the production of training materials without requiring advanced technical knowledge.',
+        text: 'Drents is a full-stack application designed to showcase my web development skills. The backend is built with Express and TypeScript, while the frontend uses React. The application functions as an appointment manager, allowing users to register, log in, and schedule an appointment. In this case, its purpose is to facilitate the scheduling of property viewings for clients interested in renting.',
         tech: 'JavaScript - TypeScript - CSS - HTML - React - Vite - Redux - Postgres - Express - Figma - Photoshop',
         img: '/LogoDrents.png',
         link: 'https://drents.vercel.app'
