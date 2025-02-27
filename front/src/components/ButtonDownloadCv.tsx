@@ -5,7 +5,7 @@ const ButtonDownloadCv: React.FC = () => {
   return (
     <a 
       href="/DAVID_PALOMINO_UX_FRONT-END.pdf" // Ruta correcta si el archivo está en public/
-      download="DAVID_PALOMINO_CV.pdf" // Nombre del archivo al descargarlo
+      download="DAVID_CV.pdf" // Nombre del archivo al descargarlo
       className={styles.rocButton}
     >
       Download CV
