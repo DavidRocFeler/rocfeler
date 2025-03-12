@@ -3,11 +3,11 @@ import { ITitleCarruselCardProps } from "@/interfaces/types";
 export const titleCarruselCardHelpers: ITitleCarruselCardProps[] = [
     {
         id: 1,
-        title: 'User experience & UI components',
+        title: 'Visual Indentity',
     },
     {
         id: 2,
-        title: 'Prototype & Layers',
+        title: 'Prototype & Flows',
     },
     {
         id: 3,
