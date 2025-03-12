@@ -33,13 +33,13 @@ export const renderFigmaHelpers: IRenderFigmaProps[] = [
     },
     {
         id: 7,
-        fileKey: "ybaKdHlGPga4BPzlCTdNJT",
-        link: 'https://www.figma.com/design/ybaKdHlGPga4BPzlCTdNJT/Agrodexports?node-id=307-349&p=f&t=LioFZX3bHyQMbPj0-0'
+        fileKey: "b2KZkQLc4PPjDCmE507xv7",
+        link: 'https://www.figma.com/design/b2KZkQLc4PPjDCmE507xv7/Social-Plaats?node-id=101-585&p=f&t=gBc4nL7fhIJF7fkY-0'
     },
     {
         id: 8,
-        fileKey: "XVYYunUnpjDspH4RKxIzlI",
-        link: 'https://www.figma.com/design/XVYYunUnpjDspH4RKxIzlI/rocfeler?node-id=519-181&p=f&t=hVkbrE9Umwd7SdCq-0'
+        fileKey: "k800udRHpTSf4KUpVMOPZ8",
+        link: 'https://www.figma.com/design/k800udRHpTSf4KUpVMOPZ8/ImportPlaats?node-id=0-1&p=f&t=gBc4nL7fhIJF7fkY-0'
     },
     {
         id: 9,
