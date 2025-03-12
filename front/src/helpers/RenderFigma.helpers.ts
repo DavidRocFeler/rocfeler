@@ -34,7 +34,7 @@ export const renderFigmaHelpers: IRenderFigmaProps[] = [
     {
         id: 7,
         fileKey: "b2KZkQLc4PPjDCmE507xv7",
-        link: 'https://www.figma.com/design/b2KZkQLc4PPjDCmE507xv7/Social-Plaats?node-id=101-585&p=f&t=gBc4nL7fhIJF7fkY-0'
+        link: 'https://www.figma.com/design/b2KZkQLc4PPjDCmE507xv7/Social-Plaats?node-id=101-585&p=f&t=MqWhz1TaMVbOuWeC-0'
     },
     {
         id: 8,
