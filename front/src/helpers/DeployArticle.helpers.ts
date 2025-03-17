@@ -73,4 +73,20 @@ export const deployArticleHelpers: IDeployArticleProps[] = [
         img: '/LogoBusGoNL.png',
         link: 'https://davidrocfeler.github.io/BusGoNL/'
     },
+    {
+        id: 10, 
+        title: 'Palindrome App',
+        text: 'This project, completed through freeCodeCamp, tests my knowledge of JavaScript, HTML, and CSS. I created a fun interactive component: a text field that detects whether a word is a palindrome.',
+        tech: 'HTML - JavaScript - CSS - Responsive',
+        img: '/LogoFreeCodeCamp.png',
+        link: 'https://davidrocfeler.github.io/palindrome-app/'
+    },
+    {
+        id: 11, 
+        title: 'Grade Book App',
+        text: 'This app, developed to showcase my JavaScript, HTML, and CSS skills, is a very useful teaching tool. Grade Book App calculates a student&apos;s grade point average, assigns a letter (A-F), and determines whether or not they passed the course.',
+        tech: 'HTML - JavaScript - CSS - Responsive',
+        img: '/LogoFreeCodeCamp.png',
+        link: 'https://davidrocfeler.github.io/gradebookapp/?'
+    },
 ]
