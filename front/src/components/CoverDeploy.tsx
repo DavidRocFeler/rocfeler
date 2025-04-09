@@ -83,7 +83,7 @@ const CoverDeploy: React.FC<ICoverDeployCarouselProps> = ({ items }) => {
         cancelAnimationFrame(animationFrameId)
       }
     }
-  }, [scrollDirection, isTouch, isScrolling])
+  }, [scrollDirection, isTouch, isScrolling, FRAME_RATE])
 
   const handleTouchStart = () => {
     setIsScrolling(false)

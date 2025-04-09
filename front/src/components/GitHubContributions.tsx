@@ -71,7 +71,7 @@ const GitHubContributions = () => {
     // Añadir 13 meses en total (mes actual + 12 meses siguientes)
     for (let i = 0; i < 13; i++) {
       // Calcular el índice del mes a añadir
-      let monthIndex = (currentMonthIndex + i) % 12;
+      const monthIndex = (currentMonthIndex + i) % 12;
       result.push(monthNames[monthIndex]);
     }
     
