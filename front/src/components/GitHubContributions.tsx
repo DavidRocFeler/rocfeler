@@ -56,7 +56,29 @@ const GitHubContributions = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const months = ["Feb" ,"Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb"];
+  function generateMonthsArray() {
+    // Nombres abreviados de los meses en inglés
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    
+    // Obtener el mes actual (0-11)
+    const currentDate = new Date();
+    const currentMonthIndex = currentDate.getMonth();
+    
+    // Crear array resultado
+    const result = [];
+    
+    // Añadir 13 meses en total (mes actual + 12 meses siguientes)
+    for (let i = 0; i < 13; i++) {
+      // Calcular el índice del mes a añadir
+      let monthIndex = (currentMonthIndex + i) % 12;
+      result.push(monthNames[monthIndex]);
+    }
+    
+    return result;
+  }  
+
+  const months = generateMonthsArray();
   const weekdays = ["Mon", "", "Wed", "", "Fri", "", ""];
 
   const getColor = (count: number) => {
