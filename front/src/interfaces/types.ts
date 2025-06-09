@@ -1,5 +1,4 @@
 export interface IDeployContentProps {
-    id?: number;
     image?: string;
     link?: string;
     imageSize?: string;
@@ -70,7 +69,7 @@ export interface ICoverDeployCarouselProps {
     items: ICoverDeploysProps[];
   }
 export interface IDeployArticleProps {
-    id: number;
+    // id: number;
     title: string;
     text: string;
     tech: string;

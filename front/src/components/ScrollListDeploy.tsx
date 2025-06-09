@@ -62,8 +62,8 @@ const ScrollListDeploy: React.FC = () => {
               className="flex-shrink-0"
             >
               <section className="grid grid-cols-1 mddd:grid-cols-2 xxl:grid-cols-3 gap-[3rem]">
-                {pageArticles.map((item) => (
-                  <DeployArticle key={item.id} {...item} />
+                {pageArticles.map((item, index) => (
+                  <DeployArticle key={index} {...item} />
                 ))}
               </section>
             </div>

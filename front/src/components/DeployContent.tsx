@@ -11,7 +11,7 @@ const DeployContent: React.FC<IDeployContentProps> = ({image, link, imageSize,})
         <button
             onClick={handleRedirectIngenius}
             className={styles.rocDeployContent}>
-            <img className={imageSize} src={image} alt="Logo" />
+            <img className= 'w-auto h-[4rem]' src={image} alt="Logo" />
             <p className=' text-[#B2B2B2] mt-[1rem]'>{link}</p>
         </button>
     </>

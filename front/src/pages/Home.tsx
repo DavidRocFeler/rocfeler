@@ -101,7 +101,7 @@ const HomeView: React.FC = () => {
           `}>
             {deployContentHelpers.map((item, index) => (
               <div
-                key={item.id}
+                key={index}
                 className={`
                   p-4 
                   w-full

@@ -58,9 +58,9 @@ const DeploysView: React.FC = () => {
             ${!slideDirection ? 'translate-x-0 opacity-100' : ''}
           `}
         >
-          {currentItems.map((item) => (
+          {currentItems.map((item, index) => (
             <DeployArticle
-              key={item.id}
+              key={index}
               {...item}
             />
           ))}
