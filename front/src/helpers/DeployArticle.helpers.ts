@@ -6,7 +6,7 @@ export const deployArticleHelpers: IDeployArticleProps[] = [
         text: "Do you want to experience a more professional way to manage your product inventory for your business? Explore the alpha version of this app for free and discover its potential. Improve your restaurant's efficiency with ainventory. This design focuses on restaurant inventory. Contact support and request your free alpha version. Provide us with the features of your inventory, and we'll customize your experience, delivering an app that meets your expectations.",
         tech: 'TypeScript - React - vite - Express - PostgreSQL - Tailwind - Figma - Photoshop',
         img: '/LogoCoinveloper.png',
-        link: 'https://ainventory-delta.vercel.app'
+        link: 'https://ainventory-beryl.vercel.app/'
     },
     {
         title: 'DTV',
