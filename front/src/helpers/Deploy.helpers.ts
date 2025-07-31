@@ -3,7 +3,7 @@ import { IDeployContentProps } from "@/interfaces/types"
 export const deployContentHelpers: IDeployContentProps[] = [
     {
         image: '/LogoCoinveloper.png',
-        link: 'https://ainventory-delta.vercel.app',
+        link: 'https://ainventory-beryl.vercel.app',
         imageSize: 'w-[6rem]'
     },
     {
