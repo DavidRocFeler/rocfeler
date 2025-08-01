@@ -2,11 +2,32 @@ import { IDeployArticleProps } from "@/interfaces/types";
 
 export const deployArticleHelpers: IDeployArticleProps[] = [
     {
+        title: 'LerenBlackboard',
+        text: "This application digitizes school management, giving students quick access to their daily schedules, pending payments, activity calendars, and more. As a free alpha version, it aims to simplify student life and connect schools with intuitive technology. Join the educational transformation! #EdTechLatam #DigitalEducation #LerenBlackboard",
+        tech: 'TypeScript - React - vite - Express - PostgreSQL - Tailwind - Figma - Photoshop',
+        img: '/SorAnaLogo.png',
+        link: 'https://lerenblackboard-demo.vercel.app'
+    },
+    {
         title: 'Ainventory',
         text: "Do you want to experience a more professional way to manage your product inventory for your business? Explore the alpha version of this app for free and discover its potential. Improve your restaurant's efficiency with ainventory. This design focuses on restaurant inventory. Contact support and request your free alpha version. Provide us with the features of your inventory, and we'll customize your experience, delivering an app that meets your expectations.",
         tech: 'TypeScript - React - vite - Express - PostgreSQL - Tailwind - Figma - Photoshop',
         img: '/LogoCoinveloper.png',
         link: 'https://ainventory-beryl.vercel.app/'
+    },
+    {
+        title: 'EpeSocialEvents',
+        text: "We connect refugees from Africa, Asia, and Latin America with Dutch locals through food. Enjoy traditional dishes prepared with love by people seeking integration, while sharing a table and building cultural bridges. Every bite tells a story of resilience and hope. Join this experience that nourishes both bodies and souls! #FoodForIntegration #InclusiveNetherlands #FlavorsThatUnite",
+        tech: 'TypeScript - React - vite  - Tailwind - Figma - Photoshop',
+        img: '/LogoSocialE.png',
+        link: 'https://social-events.vercel.app'
+    },
+    {
+        title: 'GreenJuicePeru',
+        text: "This landing page to boost your green juice business. It showcases your products attractively, highlights their natural benefits, and makes it easy for customers to contact you. Fast and adaptable technology. Need customization? Contact me! #DigitalMarketing #HealthyJuices",
+        tech: 'TypeScript - React - vite  - Tailwind - Figma - Photoshop',
+        img: '/GreenJuiceLogo3.png',
+        link: 'https://green-juice-peru.vercel.app'
     },
     {
         title: 'DTV',
