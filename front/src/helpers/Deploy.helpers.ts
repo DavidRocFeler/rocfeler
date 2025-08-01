@@ -7,13 +7,13 @@ export const deployContentHelpers: IDeployContentProps[] = [
         imageSize: 'w-[6rem]'
     },
     {
+        image: '/LogoCoinveloper.png',
+        link: 'https://lerenblackboard-demo.vercel.app',
+        imageSize: 'w-[4rem]'
+    },
+    {
         image: '/LogoLookai.png',
         link: 'https://lookai-tawny.vercel.app',
         imageSize: 'w-[10rem]'
-    },
-    {
-        image: '/LogoIngeniusOpacity.svg',
-        link: 'https://ingenius-lydg.vercel.app',
-        imageSize: 'w-[4rem]'
-    },
+    }
 ]
