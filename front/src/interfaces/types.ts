@@ -61,7 +61,6 @@ export interface ILoadingProps {
     height?: string;
   }
 export interface ICoverDeploysProps {
-    id: number;
     img: string;
     link?: string;
 }

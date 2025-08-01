@@ -105,18 +105,18 @@ const CoverDeploy: React.FC<ICoverDeployCarouselProps> = ({ items }) => {
         onTouchEnd={handleTouchEnd}
       >
         <div className="flex">
-          {items.map((item) => (
-            <img
-              key={item.id}
-              className={`cursor-pointer object-cover h-[300px] min-w-[800px] sm:min-w-full sm:h-auto transition-all duration-1500 ease-in-out ${
-                showOverlay ? 'opacity-60' : 'opacity-60'
-              }`}
-              src={item.img}
-              alt={`Project ${item.id}`}
-              onClick={() => handleRedirectDeploy(item.link)}
-              draggable={false}
-            />
-          ))}
+        {items.map((item, index) => (
+          <img
+            key={`deploy-${index}`} // Usamos el índice como parte de la clave
+            className={`cursor-pointer object-cover h-[300px] min-w-[800px] sm:min-w-full sm:h-auto transition-all duration-1500 ease-in-out ${
+              showOverlay ? 'opacity-60' : 'opacity-60'
+            }`}
+            src={item.img}
+            alt={`Project ${index + 1}`} // Descripción alternativa basada en posición
+            onClick={() => handleRedirectDeploy(item.link)}
+            draggable={false}
+          />
+        ))}
         </div>
       </div>
     </section>
