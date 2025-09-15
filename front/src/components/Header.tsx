@@ -101,10 +101,10 @@ const Header: React.FC = () => {
               Repositories
             </Link>
             <Link 
-              href="/uxui" 
-              className={`${pathname === '/uxui' ? 'font-bold' : 'text-white font-[250]'}`}
+              href="/design" 
+              className={`${pathname === '/design' ? 'font-bold' : 'text-white font-[250]'}`}
             >
-              UX/UI
+              Design
             </Link>
             <Link 
               href="https://davidrocfeler.blogspot.com" 
