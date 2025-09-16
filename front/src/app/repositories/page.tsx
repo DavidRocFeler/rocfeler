@@ -3,7 +3,7 @@ import React from 'react'
 
 const Repositories: React.FC = () => {
   return (
-    <div>
+    <div className='pb-[10rem]'>
         <RepositoriesView/>
     </div>
   )

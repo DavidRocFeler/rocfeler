@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 
-const LazyIframe: React.FC = () => {
+const LazyIframeResponsive: React.FC = () => {
   const [isDomLoaded, setIsDomLoaded] = useState(false);
 
   useEffect(() => {
@@ -21,19 +21,19 @@ const LazyIframe: React.FC = () => {
   }, []);
 
   return (
-    <div className="h-full"> {/* ✅ Contenedor con dimensiones completas */}
+    <div>
       {isDomLoaded && (
         <iframe
-          className="w-full h-full" // ✅ Ocupa todo el espacio + border-radius más pequeño
+          className="rounded-[20px] w-[320px] h-[516px]"
           src="https://www.behance.net/embed/project/216112801?ilo0=1"
           allowFullScreen
           loading="lazy"
+          allow="clipboard-write"
           referrerPolicy="strict-origin-when-cross-origin"
-          style={{ border: 'none' }} // ✅ Eliminar borde por defecto
         />
       )}
     </div>
   );
 };
 
-export default LazyIframe;
+export default LazyIframeResponsive;

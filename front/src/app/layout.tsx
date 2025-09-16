@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BagroundGradiant from "@/components/BagroundGradiant";
+import 'marvel-devices.css';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

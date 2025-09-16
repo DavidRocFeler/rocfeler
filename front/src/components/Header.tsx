@@ -118,9 +118,9 @@ const Header: React.FC = () => {
             >
               About
             </Link>
-            <a href="" className="text-white font-[250]">
+            {/* <a href="" className="text-white font-[250]">
               Resources
-            </a>
+            </a> */}
           </div>
         </nav>
 
@@ -151,7 +151,7 @@ const Header: React.FC = () => {
             <Link href="/repositories">Repositories</Link>
           </li>
           <li className='hover:bg-[#1F1F1F] py-[0.35rem] mb-2 text-center rounded-[10px]'>
-            <Link href="/uxui">UX/UI</Link>
+            <Link href="/design">design</Link>
           </li>
           <li className='hover:bg-[#1F1F1F] py-[0.35rem] mb-2 text-center rounded-[10px]'>
             <Link href="https://davidrocfeler.blogspot.com">Blog</Link>
@@ -159,9 +159,9 @@ const Header: React.FC = () => {
           <li className='hover:bg-[#1F1F1F] py-[0.35rem] mb-2 text-center rounded-[10px]'>
             <Link href="/about">About</Link>
           </li>
-          <li className='hover:bg-[#1F1F1F] py-[0.35rem] mb-2 text-center rounded-[10px]'>
+          {/* <li className='hover:bg-[#1F1F1F] py-[0.35rem] mb-2 text-center rounded-[10px]'>
             <a href="">Resources</a>
-          </li>
+          </li> */}
           <button 
             className={`${styles.rocButton}`}
             onClick={handleOpenModal}

@@ -3,7 +3,7 @@ import React from 'react'
 
 const Ux: React.FC = () => {
   return (
-    <div>
+    <div className='pb-[10rem]'>
         <UxSection />
     </div>
   )

@@ -1,12 +1,35 @@
 import React from 'react'
-import styles from '../style/ButtonDownload.module.css'
 
 const ButtonDownloadCv: React.FC = () => {
   return (
     <a 
       href="/DAVID_PALOMINO_UX_FRONT-END.pdf" // Ruta correcta si el archivo está en public/
       download="DAVID_CV_2025.pdf" // Nombre del archivo al descargarlo
-      className={styles.rocButton}
+      className='
+      bg-[#1F59E8] 
+      hover:bg-[#1945D3]
+      active:translate-y-[2px]
+      active:shadow-[0_2px_4px_rgba(0,0,0,0.2)]
+      flex 
+      justify-center 
+      items-center 
+      font-[450]
+      font-sans 
+      text-base 
+      w-[70%]
+      xxl:w-fit
+      px-4 
+      py-[0.17rem]
+      rounded-[10px]
+      border-none 
+      cursor-pointer 
+      shadow-[0_4px_6px_rgba(0,0,0,0.1)]
+      transition-all 
+      duration-100 
+      ease-in-out 
+      mx-auto 
+      text-white
+      '
     >
       Download CV
       <svg

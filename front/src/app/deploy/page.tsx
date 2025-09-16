@@ -3,7 +3,7 @@ import React from 'react'
 
 const Deploy: React.FC = () => {
   return (
-    <div>
+    <div className='pb-[10rem]'>
         <DeploysView/>
     </div>
   )
